@@ -188,3 +188,25 @@ contactForm.addEventListener("submit", async (e) => {
         formStatus.style.color = "#dc2626";
     }
 });
+
+const themeBtn = document.querySelector(".theme-toggle button");
+
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  // optional save
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// load saved theme
+window.addEventListener("load", () => {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+});
