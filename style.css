@@ -503,37 +503,49 @@ img,
 
 /*Layout*/
 .hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+   display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    max-width: 1400px;
+    margin: auto;
+
+    position: relative;
+    z-index: 2;
 }
 
 /*Image*/
 .hero-image {
   position: relative;
-  flex: 1;
-  display: relative;
-  justify-content: center;
-  align-items: center;
-  min-width: 320px;
 
-  animation: floatImage 5s ease-in-out infinite;
+    flex: 1;
+
+    display: flex; /* FIXED */
+    justify-content: flex-start; /* IMAGE LEFT */
+    align-items: center;
+
+    min-width: 320px;
 }
 
 .hero-image img {
   position: relative;
-  width: 100%;
-  max-width: 500px;
-  height: 650px;
-  display: block;
-  object-fit: contain;
-  z-index: 2;
-  transition: transform 0.5s ease;
 
-  border-radius: 0 0 30% 30%;
+    width: 100%;
+    max-width: 470px;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    z-index: 2;
+
+    border-radius: 0 0 30% 30%;
+
+    transition: transform 0.4s ease;
 }
 
 /*Text*/
@@ -690,7 +702,7 @@ img,
   top: 50%;
   left: 0%;
 
-  transform: translate(10%, -60%);
+  transform: translate(0, -50%);
 
   transition:
     transform 0.7s ease,
@@ -703,15 +715,9 @@ img,
   border-radius: 50%;
 
   transform-origin: center;
+  animation: floatCircle 5s ease-in-out infinite;
 
-  background: radial-gradient(
-    circle at center,
-    rgba(37, 99, 235, 0.65) 0%,
-    rgba(59, 130, 246, 0.45) 30%,
-    rgba(96, 165, 250, 0.28) 55%,
-    rgba(147, 197, 253, 0.12) 75%,
-    rgba(255, 255, 255, 0) 100%
-  );
+ 
 
   background: conic-gradient(
     from 0deg,
