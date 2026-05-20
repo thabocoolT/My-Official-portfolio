@@ -505,11 +505,13 @@ img,
 .hero-container {
    display: flex;
   align-items: center;
-  justify-content: center;
-   flex-direction: row;
-  gap: 20px;
-  max-width: 1200px;
+  justify-content: space-between;
+  
+  gap: 80px;
+  max-width: 1300px;
   margin: 0 auto;
+
+  position:relative;
     z-index: 2;
 }
 
@@ -520,7 +522,7 @@ img,
     flex: 1;
 
     display: flex; /* FIXED */
-    justify-content: flex-start; /* IMAGE LEFT */
+    justify-content: center; /* IMAGE LEFT */
     align-items: center;
 
     min-width: 320px;
@@ -695,68 +697,103 @@ img,
 
 /*---------Background Circle--------------*/
 .circle {
+  
   position: absolute;
-  top: 50%;
-  left: 0%;
 
-  transform: translate(0, -50%);
+  top:42%;
+  left: 50%;
 
-  transition:
-    transform 0.7s ease,
-    box-shadow 0.7s ease;
+  width:430px;
+  height:430px;
 
-  width: 420px;
-  height: 420px;
-
-  border: 0.5px solid #e2e2e7;
   border-radius: 50%;
+  transform:translate(-50%, -50%);
+  z-index:0;
 
-  transform-origin: center;
+  overflow:hidden;
+
   animation: floatCircle 5s ease-in-out infinite;
 
- 
+  transition:
+    transform 0.8s ease,
+    box-shadow 0.8s ease,
+    border 0.6s ease,
+    background 0.6s ease;
 
-  background: conic-gradient(
-    from 0deg,
-    rgba(37, 80, 235, 0.95),
-    rgba(59, 130, 246, 0.55),
-    rgba(147, 197, 235, 0.18),
-    rgba(37, 99, 235, 0.95)
+     /* TRANSPARENT GLASS LOOK */
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.14),
+    rgba(59, 130, 246, 0.08),
+    rgba(37, 99, 235, 0.03),
+    transparent 75%
   );
 
-  box-shadow:
-    0 0 40px rgba(37, 99, 235, 0.55),
-    0 0 90px rgba(59, 130, 246, 0.35),
-    0 0 140px rgba(96, 165, 250, 0.25);
-  z-index: 0;
+   /* SOFT OUTER RING */
+  border: 1px solid rgba(7, 70, 151, 0.18);
 
-  overflow: visible;
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 40px rgba(59, 130, 246, 0.25),
+    0 0 90px rgba(37, 99, 235, 0.15),
+    inset 0 0 40px rgba(255, 255, 255, 0.08);
+
+
+}
+body.dark-mode .circle {
+  background: radial-gradient(
+    circle at center,
+    rgba(96, 165, 250, 0.12),
+    rgba(37, 99, 235, 0.08),
+    rgba(15, 23, 42, 0.02),
+    transparent 75%
+  );
+
+  border: 1px solid rgba(96, 165, 250, 0.16);
+
+  box-shadow:
+    0 0 70px rgba(59, 130, 246, 0.35),
+    0 0 140px rgba(37, 99, 235, 0.22),
+    inset 0 0 50px rgba(96, 165, 250, 0.06);
+}
+
+body:not(.dark-mode) .circle {
+  box-shadow:
+    0 0 30px rgba(37, 99, 235, 0.12),
+    0 0 70px rgba(96, 165, 250, 0.08),
+    inset 0 0 25px rgba(255, 255, 255, 0.2);
 }
 /*--------------------Inner Soft Circle----------------*/
 .circle::before {
   content: "";
+
   position: absolute;
 
-  inset: 25px;
+  inset: 18px;
 
   border-radius: 50%;
 
   background: radial-gradient(
     circle at center,
-    rgba(255, 255, 255, 0.95),
-    rgba(219, 234, 254, 0.7),
-    rgba(255, 255, 255, 0.2)
+    rgba(255, 255, 255, 0.22),
+    rgba(147, 197, 253, 0.12),
+    rgba(255, 255, 255, 0.03),
+    transparent 75%
   );
-}
 
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
 /*--------------Hover Effects-------------*/
 .hero-image:hover .circle {
-  transform: translate(10%, -55%) scale(0.92) rotate(180deg);
+  animation: floatCircle 3s ease-in-out infinite;
+
+  transform: translate(-50%, -50%) rotate(220deg) scale(1.03);
 
   box-shadow:
-    0 0 50px rgba(37, 99, 235, 0.75),
-    0 0 100px rgba(59, 130, 246, 0.55),
-    0 0 150px rgba(96, 165, 250, 0.35);
+    0 0 55px rgba(59, 130, 246, 0.35),
+    0 0 110px rgba(96, 165, 250, 0.22),
+    inset 0 0 35px rgba(191, 219, 254, 0.1);
 }
 
 /*---Image Hover Effect---*/
