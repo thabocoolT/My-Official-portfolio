@@ -44,7 +44,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
     link.addEventListener("click", () => {
 
-        navMenu.classList.remove("active");
+        navLinks.classList.remove("active");
         burger.classList.remove("active");
     });
 });
