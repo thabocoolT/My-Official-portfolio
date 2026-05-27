@@ -7,8 +7,6 @@ html, body{
 
 
 
-
-
 /* ANIMATIONS */
 @keyframes navbarGlow {
   0% { transform: translateX(-20%); }
