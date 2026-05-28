@@ -492,7 +492,7 @@ img,
 
 /* ================= HERO ================= */
 .hero {
-  padding: 170px 0 40px;
+  padding: 180px 0 40px;
   background: var(--section-bg);
   position: relative;
   overflow: hidden;
@@ -613,9 +613,7 @@ img,
   color: #666;
   margin-bottom: 10px;
 }
-.hero {
-  padding: 80px 20px;
-}
+
 .hero-content h1 {
   font-size: 48px;
   line-height: 1.05;
@@ -755,7 +753,7 @@ img,
 .circle {
   position: absolute;
 
-  top: 50%;
+  top: 55%;
   left: 50%;
 
   width: 550px;

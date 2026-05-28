@@ -49,10 +49,11 @@ html, body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 40px;
   }
   .hero-content {
     max-width: 100%;
+    text-align: center;
   }
   .hero-buttons {
     justify-content: center;
@@ -61,13 +62,25 @@ html, body{
     justify-content: center;
   }
   .circle {
-    width: 360px;
-    height: 360px;
+    width: 300px;
+    height: 300px;
     transform: translate(-50%, -50%);
+  }
+  .hero-imag{
+    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
   }
   .hero-image img {
     width: 300px;
-    margin-top:-30%;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+
+  /* CLEAN GLOW */
+  filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.45));
   }
   .hero {
     padding: 30px 20px 10px;
@@ -185,13 +198,15 @@ html, body{
     padding: 15px 20px;
   }
   .hero {
-    padding: 30px 20px 10px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content: center;
-    text-align:center;
-    position:relative;
+    padding: 120px 20px 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  position: relative;
   }
   .hero-content {
     display:flex;
@@ -204,31 +219,40 @@ html, body{
     text-align:center;
   }
   .hero-image {
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    margin-bottom: -35%;
-    margin-top: 10px;
+    position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 25px;
+  margin-bottom: 0;
   }
   .hero-image img {
-    width: 250px;
-    max-width:100%;
-    position:relative;
-     z-index: 2;
+   width: 250px;
+  height:250px;
+
+  position: relative;
+  z-index: 2;
+
+  /* ONLY IMAGE GLOWS */
+  filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.5));
   }
   .circle {
-    position:absolute;
-    width:230px;
-    height:230px;
-    border-radius:50%;
-    left:50%;
-    top:42%;
-    transform:translate(-50%, -50%);
-    z-index:1;
+     position: absolute;
 
-    animation: floatCircle 4s ease-in-out infinite;
+  width: 270px;
+  height: 270px;
 
+  border-radius: 50%;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  animation: floatCircle 4s ease-in-out infinite;
   }
 
   .logo{
