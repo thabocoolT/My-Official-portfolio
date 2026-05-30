@@ -23,7 +23,18 @@
     <link rel="icon" type="image/png" href="images/favicon.png"/>
   </head>
 
-  <body>
+  <body class="dark-mode">
+
+     <div class="global-background">
+    <div class="grid-landscape"></div>
+
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="grid-landscape"></div>
+
+    <div class="mountain mountain-1"></div>
+    <div class="mountain mountain-2"></div>
+</div>
     <!--===================NAV BAR============= -->
     <header class="navbar">
       <div class="nav-container">
@@ -50,7 +61,9 @@
 
         <!-- Theme Toggle Button -->
         <div class="theme-toggle">
-          <button id="themeBtn">&#x2600;</button>
+          <button id="themeBtn" aria-label="Toggle Theme">
+    <i class="fa-solid fa-moon"></i>
+</button>
         </div>
       </div>
     </header>
@@ -58,11 +71,23 @@
 
     <!-- ================= HERO SECTION ================= -->
     <section id="home" class="hero">
+      <div class="hero-grid"></div>
       <div class="section-container hero-container reveal">
         <!-- My Image -->
         <div class="hero-image reveal">
+          <div class="particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <div class="circle"></div>
-          <img src="assets/hero.png" alt="Thabo Motau" />
+          <img src="assets/hero.png" class="img-default" alt="Thabo Motau" />
+
+          <img src="assets/hero2.png" class="img-hover" alt="Thabo Motau" />
+
         </div>
 
         <!-- RIGHT: TEXT -->
@@ -74,7 +99,7 @@
             Prince Motau
           </h1>
 
-          <h3>Aspiring Software Developer | Systems Analyst</h3>
+          <h3><span id="typing-text"></span></h3>
 
           <p class="subtitle">
             Final-year BSc IT student with a strong focus on software
@@ -121,7 +146,8 @@
 
     <!--===================ABOUT SECTION================= -->
     <section id="about" class="about">
-      <div class="section-container about-container reveal">
+      
+      <div class="section-container about-container reveal neon-frame ">
         <!-- Section Title -->
         <div class="section-title">
           <i class="fas fa-user"></i>
@@ -135,6 +161,10 @@
         <div class="about-content reveal">
           <!-- Left Side -->
           <div class="about-left">
+            <span class="about-subtitle">
+              <h2>GET TO KNOW ME</h2>
+              
+            </span>
             <div class="about-text">
               <p>
                 I am a final-year BSc Information Technology student with a
@@ -157,17 +187,19 @@
 
           <!-- Right Content -->
           <div class="about-right">
-            <div class="info-item">
+            <div class="info-item info-name">
+              
               <span class="fa-solid fa-user"></span>
               <p><strong>Name:</strong> Thabo Prince Motau</p>
             </div>
 
-            <div class="info-item">
+           <div class="info-grid">
+             <div class="info-item">
               <span class="fa-solid fa-graduation-cap"></span>
               <p>
-                <strong>Education:</strong> BSc Information Technology (Final
-                Year) <br />
-                North-West University
+                <strong>Education:</strong>BSc Information Technology 
+                <br /> 
+                NWU
               </p>
             </div>
 
@@ -175,6 +207,7 @@
               <span class="fa-solid fa-phone"></span>
               <p>
                 <strong>Telephone:</strong>
+               
                 <a href="tel:+27630028070">+27 63 002 8070</a>
               </p>
             </div>
@@ -183,6 +216,7 @@
               <span class="fa-solid fa-location-dot"></span>
               <p>
                 <strong>Location:</strong>
+                
                 <a
                   href="https://maps.google.com/?q=Vereeniging,+South+Africa"
                   target="_blank"
@@ -196,9 +230,11 @@
               <span class="fa-solid fa-circle-check"></span>
               <p>
                 <strong>Availability:</strong>
+              
                 <a href="#contact">Open to Opportunities</a>
               </p>
             </div>
+           </div>
           </div>
         </div>
       </div>
@@ -222,7 +258,7 @@
           <!-- Skills Slider -->
           <div class="skills-slider">
             <!-- CARD 1 -->
-            <div class="skill-card reveal">
+            <div class="skill-card pos-1 reveal">
               <div class="card-title">💻 Programming</div>
               <ul>
                 <li><i class="fa-brands fa-java java-icon"></i> Java</li>
@@ -233,7 +269,7 @@
             </div>
 
             <!-- CARD 2 -->
-            <div class="skill-card reveal">
+            <div class="skill-card pos-2 reveal">
               <div class="card-title">🌐 Web Development</div>
               <ul>
                 <li><i class="fa-brands fa-html5 html-icon"></i> HTML</li>
@@ -243,7 +279,7 @@
             </div>
 
             <!-- CARD 3 -->
-            <div class="skill-card reveal">
+            <div class="skill-card pos-3 reveal">
               <div class="card-title">
                 <i class="fa-solid fa-database"></i> Databases
               </div>
@@ -260,7 +296,7 @@
             </div>
 
             <!-- CARD 4 -->
-            <div class="skill-card reveal">
+            <div class="skill-card pos-4 reveal">
               <div class="card-title">
                 <i class="fa-solid fa-diagram-project"></i> Systems Analysis
               </div>
@@ -280,7 +316,7 @@
             </div>
 
             <!-- CARD 5 -->
-            <div class="skill-card reveal">
+            <div class="skill-card pos-5 reveal">
               <div class="card-title">
                 <i class="fa-solid fa-network-wired"></i> Computer Networks
               </div>
@@ -300,7 +336,7 @@
             </div>
 
             <!-- CARD 6 -->
-            <div class="skill-card reveal">
+            <div class="skill-card pos-6 reveal">
               <div class="card-title">
                 <i class="fa-solid fa-gears"></i> Tools & Others
               </div>
@@ -531,7 +567,7 @@
         <!-- Main Heading -->
         <h2 class="contact-title">Get In Touch</h2>
 <div class="contact-intro">
-  <h3>Let's Build Something Amazing Together!</h3>
+  
 
   <p>
     I’m always open to discussing software development,
@@ -737,4 +773,5 @@
 <script src="script.js"></script>
 
   </body>
+ 
 </html>

@@ -1,29 +1,185 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap");
-html, body{
-    overflow-x: hidden;
-    max-width: 100%;
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 
 
+@keyframes neonFlow {
+  from {
+    transform: translateX(-100%);
+  }
 
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes floatOrb{
+
+  0%,100%{
+    transform:
+      translateY(0px)
+      translateX(0px);
+  }
+
+  50%{
+    transform:
+      translateY(-40px)
+      translateX(20px);
+  }
+}
+
+@keyframes borderRotate {
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+@keyframes dividerGlow{
+    0%{
+        opacity:0.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0.3;
+    }
+}
+
+@keyframes blinkCursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes rotateRing {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateRingReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes gridMove {
+
+  from{
+    transform:
+      perspective(1200px)
+      rotateX(75deg)
+      translateY(0);
+  }
+
+  to{
+    transform:
+      perspective(1200px)
+      rotateX(75deg)
+      translateY(60px);
+  }
+}
+
+
+@keyframes navBorderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
 /* ANIMATIONS */
 @keyframes navbarGlow {
-  0% { transform: translateX(-20%); }
-  50% { transform: translateX(20%); }
-  100% { transform: translateX(-20%); }
+  0% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
 }
 @keyframes softSkillAppear {
-  to { transform: translateY(0); opacity: 1; }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @keyframes floatImage {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 @keyframes mobileMenu {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 @keyframes floatCircle {
   0% {
@@ -62,25 +218,25 @@ html, body{
     justify-content: center;
   }
   .circle {
-    width: 300px;
-    height: 300px;
+    width: 360px;
+    height: 360px;
     transform: translate(-50%, -50%);
   }
-  .hero-imag{
+  .hero-imag {
     position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
   }
   .hero-image img {
     width: 300px;
-  max-width: 100%;
-  position: relative;
-  z-index: 2;
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
 
-  /* CLEAN GLOW */
-  filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.45));
+    /* CLEAN GLOW */
+    filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.45));
   }
   .hero {
     padding: 30px 20px 10px;
@@ -139,16 +295,16 @@ html, body{
   .contact-wrapper {
     flex-direction: column;
   }
-  .logo{
-        font-size: 0;
-    }
+  .logo {
+    font-size: 0;
+  }
 
-    .logo::after{
-        content: "TP Motau";
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--primary);
-    }
+  .logo::after {
+    content: "TP Motau";
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+  }
 }
 
 @media (max-width: 768px) {
@@ -158,6 +314,11 @@ html, body{
   .burger {
     display: flex;
   }
+
+   .info-grid{
+        grid-template-columns:1fr;
+    }
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -189,6 +350,10 @@ html, body{
     transition:
       color 0.3s ease,
       transform 0.3s ease;
+
+      text-shadow:
+  0 0 10px rgba(59,130,246,0.35),
+  0 0 20px rgba(96,165,250,0.18);
   }
   .nav-links a:hover {
     color: #2563eb;
@@ -200,70 +365,74 @@ html, body{
   .hero {
     padding: 120px 20px 50px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  text-align: center;
-  position: relative;
+    text-align: center;
+    position: relative;
   }
   .hero-content {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   }
   .hero-content h1 {
     font-size: 32px;
-    text-align:center;
+    text-align: center;
   }
   .hero-image {
     position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  margin-top: 25px;
-  margin-bottom: 0;
+    margin-top: 25px;
+    margin-bottom: 0;
   }
   .hero-image img {
-   width: 250px;
-  height:250px;
+    width: 250px;
+    height: 250px;
 
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
 
-  /* ONLY IMAGE GLOWS */
-  filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.5));
+    /* ONLY IMAGE GLOWS */
+    filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.5));
   }
   .circle {
-     position: absolute;
+    position: absolute;
 
-  width: 270px;
-  height: 270px;
+    width: 250px;
+    height: 250px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  left: 50%;
-  top: 50%;
+    left: 50%;
+    top: 50%;
 
-  transform: translate(-50%, -50%);
-  z-index: 1;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 
-  animation: floatCircle 4s ease-in-out infinite;
+    animation: floatCircle 4s ease-in-out infinite;
   }
 
-  .logo{
-    font-size:0;
+  .circle::before {
+    inset: -12px;
   }
-  .logo::after{
-        content: "TP Motau";
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--primary);
-    }
+
+  .logo {
+    font-size: 0;
+  }
+  .logo::after {
+    content: "TP Motau";
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+  }
 
   .hero-image:hover .circle {
     transform: translate(-50%, -50%) scale(0.92) rotate(180deg);
