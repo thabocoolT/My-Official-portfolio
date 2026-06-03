@@ -491,26 +491,28 @@ body {
     font-size: 15px;
     line-height: 1.6;
   }
-  .skills-slider {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 10px;
+  .skills-slider-viewport {
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   }
   .skills-arrow {
-    display: none;
+    display: flex;
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
   }
   .skill-card {
-    min-width: 85%;
-    scroll-snap-align: center;
-    transition:
-      transform 0.35s ease,
-      box-shadow 0.35s ease;
+    width: 200px;
+    min-height: 280px;
+    padding: 1.3rem;
   }
-  .skill-card:hover,
-  .skill-card:active {
-    transform: scale(1.03) translateY(-6px);
-    box-shadow: 0 18px 35px rgba(37, 99, 235, 0.18);
+  .card-title {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .skill-card ul li {
+    font-size: 13px;
+    margin-bottom: 10px;
   }
   .view-more-btn {
     display: inline-flex;
@@ -627,9 +629,6 @@ body {
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  .skills-slider {
-    -webkit-overflow-scrolling: touch;
   }
-}
 
 /*================ FLOAT ANIMATION ================*/

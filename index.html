@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title >Thabo Prince Motau | Software Developer Portfolio</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaquery.css" />
@@ -250,16 +251,17 @@
         <!-- Main Title -->
         <h2 class="skills-title">My Technical Toolkit</h2>
 
-        <!-- Skills Navigation Tabs -->
+        <!-- Skills Slider Viewport -->
         <div class="skills-slider-wrapper">
           <!-- LEFT BUTTON -->
           <button class="skills-arrow left-arrow">❮</button>
+          <div class="skills-slider-viewport">
+          <!-- Skills Slider (cards duplicated for seamless loop) -->
+          <div class="skills-slider" id="skillsSlider">
 
-          <!-- Skills Slider -->
-          <div class="skills-slider">
-            <!-- CARD 1 -->
-            <div class="skill-card pos-1 reveal">
-              <div class="card-title">💻 Programming</div>
+            <!-- ── ORIGINAL SET ── -->
+            <div class="skill-card">
+              <div class="card-title"><i class="fa-solid fa-terminal"></i> Programming <span class="card-dot"></span></div>
               <ul>
                 <li><i class="fa-brands fa-java java-icon"></i> Java</li>
                 <li><i class="fa-solid fa-code csharp-icon"></i> C#</li>
@@ -268,97 +270,115 @@
               </ul>
             </div>
 
-            <!-- CARD 2 -->
-            <div class="skill-card pos-2 reveal">
-              <div class="card-title">🌐 Web Development</div>
+            <div class="skill-card">
+              <div class="card-title"><i class="fa-solid fa-globe"></i> Web Dev <span class="card-dot"></span></div>
               <ul>
-                <li><i class="fa-brands fa-html5 html-icon"></i> HTML</li>
-                <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS</li>
+                <li><i class="fa-brands fa-html5 html-icon"></i> HTML5</li>
+                <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS3</li>
                 <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
               </ul>
             </div>
 
-            <!-- CARD 3 -->
-            <div class="skill-card pos-3 reveal">
-              <div class="card-title">
-                <i class="fa-solid fa-database"></i> Databases
-              </div>
+            <div class="skill-card">
+              <div class="card-title"><i class="fa-solid fa-database"></i> Databases <span class="card-dot"></span></div>
               <ul>
-                <li>
-                  <i class="devicon-oracle-original colored"></i> Oracle SQL
-                  Developer
-                </li>
-                <li>
-                  <i class="fa-solid fa-database sql-icon"></i> SQL Server
-                </li>
+                <li><i class="devicon-oracle-original colored"></i> Oracle SQL</li>
+                <li><i class="fa-solid fa-database sql-icon"></i> SQL Server</li>
                 <li><i class="devicon-mongodb-plain colored"></i> MongoDB</li>
               </ul>
             </div>
 
-            <!-- CARD 4 -->
-            <div class="skill-card pos-4 reveal">
-              <div class="card-title">
-                <i class="fa-solid fa-diagram-project"></i> Systems Analysis
-              </div>
+            <div class="skill-card">
+              <div class="card-title"><i class="fa-solid fa-diagram-project"></i> Systems Analysis <span class="card-dot"></span></div>
               <ul>
                 <li><i class="fa-solid fa-cube"></i> UML</li>
-                <li>
-                  <i class="fa-solid fa-users-viewfinder"></i> Use Case Diagrams
-                </li>
-                <li>
-                  <i class="fa-solid fa-arrows-to-circle"></i> Data Flow
-                  Diagrams
-                </li>
-                <li>
-                  <i class="fa-solid fa-diagram-project"></i> System Design
-                </li>
+                <li><i class="fa-solid fa-users-viewfinder"></i> Use Case Diagrams</li>
+                <li><i class="fa-solid fa-arrows-to-circle"></i> Data Flow Diagrams</li>
+                <li><i class="fa-solid fa-sitemap"></i> System Design</li>
               </ul>
             </div>
 
-            <!-- CARD 5 -->
-            <div class="skill-card pos-5 reveal">
-              <div class="card-title">
-                <i class="fa-solid fa-network-wired"></i> Computer Networks
-              </div>
+            <div class="skill-card">
+              <div class="card-title"><i class="fa-solid fa-network-wired"></i> Computer Networks <span class="card-dot"></span></div>
               <ul>
-                <li>
-                  <i class="fa-solid fa-diagram-project network-icon"></i>
-                  Network Topologies
-                </li>
-                <li>
-                  <i class="fa-solid fa-shield-halved security-icon"></i>
-                  Network Security
-                </li>
-                <li>
-                  <i class="fa-solid fa-wifi wifi-icon"></i> Networking Basics
-                </li>
+                <li><i class="fa-solid fa-diagram-project network-icon"></i> Network Topologies</li>
+                <li><i class="fa-solid fa-shield-halved security-icon"></i> Network Security</li>
+                <li><i class="fa-solid fa-wifi wifi-icon"></i> Networking Basics</li>
               </ul>
             </div>
 
-            <!-- CARD 6 -->
-            <div class="skill-card pos-6 reveal">
-              <div class="card-title">
-                <i class="fa-solid fa-gears"></i> Tools & Others
-              </div>
+            <div class="skill-card">
+              <div class="card-title"><i class="fa-solid fa-gears"></i> Tools & Others <span class="card-dot"></span></div>
               <ul>
-                <li>
-                  <i class="fa-brands fa-git-alt git-icon"></i> Git & GitHub
-                </li>
+                <li><i class="fa-brands fa-git-alt git-icon"></i> Git & GitHub</li>
                 <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
-                <li>
-                  <i class="fa-solid fa-gears agile-icon"></i> Agile
-                  Methodologies
-                </li>
-                <li>
-                  <i class="fa-solid fa-network-wired cisco-icon"></i> Cisco
-                  Packet Tracer
-                </li>
-                <li>
-                  <i class="fa-solid fa-robot ai-icon"></i> AI & ML Basics
-                </li>
+                <li><i class="fa-solid fa-gears agile-icon"></i> Agile Methods</li>
+                <li><i class="fa-solid fa-network-wired cisco-icon"></i> Cisco Packet Tracer</li>
+                <li><i class="fa-solid fa-robot ai-icon"></i> AI & ML Basics</li>
               </ul>
             </div>
-          </div>
+
+            <!-- ── DUPLICATE SET (seamless loop) ── -->
+            <div class="skill-card" aria-hidden="true">
+              <div class="card-title"><i class="fa-solid fa-terminal"></i> Programming <span class="card-dot"></span></div>
+              <ul>
+                <li><i class="fa-brands fa-java java-icon"></i> Java</li>
+                <li><i class="fa-solid fa-code csharp-icon"></i> C#</li>
+                <li><i class="fa-brands fa-python python-icon"></i> Python</li>
+                <li><i class="fa-solid fa-laptop-code cpp-icon"></i> C++</li>
+              </ul>
+            </div>
+
+            <div class="skill-card" aria-hidden="true">
+              <div class="card-title"><i class="fa-solid fa-globe"></i> Web Dev <span class="card-dot"></span></div>
+              <ul>
+                <li><i class="fa-brands fa-html5 html-icon"></i> HTML5</li>
+                <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS3</li>
+                <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
+              </ul>
+            </div>
+
+            <div class="skill-card" aria-hidden="true">
+              <div class="card-title"><i class="fa-solid fa-database"></i> Databases <span class="card-dot"></span></div>
+              <ul>
+                <li><i class="devicon-oracle-original colored"></i> Oracle SQL</li>
+                <li><i class="fa-solid fa-database sql-icon"></i> SQL Server</li>
+                <li><i class="devicon-mongodb-plain colored"></i> MongoDB</li>
+              </ul>
+            </div>
+
+            <div class="skill-card" aria-hidden="true">
+              <div class="card-title"><i class="fa-solid fa-diagram-project"></i> Systems Analysis <span class="card-dot"></span></div>
+              <ul>
+                <li><i class="fa-solid fa-cube"></i> UML</li>
+                <li><i class="fa-solid fa-users-viewfinder"></i> Use Case Diagrams</li>
+                <li><i class="fa-solid fa-arrows-to-circle"></i> Data Flow Diagrams</li>
+                <li><i class="fa-solid fa-sitemap"></i> System Design</li>
+              </ul>
+            </div>
+
+            <div class="skill-card" aria-hidden="true">
+              <div class="card-title"><i class="fa-solid fa-network-wired"></i> Computer Networks <span class="card-dot"></span></div>
+              <ul>
+                <li><i class="fa-solid fa-diagram-project network-icon"></i> Network Topologies</li>
+                <li><i class="fa-solid fa-shield-halved security-icon"></i> Network Security</li>
+                <li><i class="fa-solid fa-wifi wifi-icon"></i> Networking Basics</li>
+              </ul>
+            </div>
+
+            <div class="skill-card" aria-hidden="true">
+              <div class="card-title"><i class="fa-solid fa-gears"></i> Tools & Others <span class="card-dot"></span></div>
+              <ul>
+                <li><i class="fa-brands fa-git-alt git-icon"></i> Git & GitHub</li>
+                <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
+                <li><i class="fa-solid fa-gears agile-icon"></i> Agile Methods</li>
+                <li><i class="fa-solid fa-network-wired cisco-icon"></i> Cisco Packet Tracer</li>
+                <li><i class="fa-solid fa-robot ai-icon"></i> AI & ML Basics</li>
+              </ul>
+            </div>
+
+          </div><!-- end skills-slider -->
+          </div><!-- end skills-slider-viewport -->
           <!-- RIGHT BUTTON -->
           <button class="skills-arrow right-arrow">❯</button>
         </div>

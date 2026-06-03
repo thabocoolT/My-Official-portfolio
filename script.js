@@ -108,28 +108,41 @@ function typeEffect() {
 
 typeEffect();
 //===================================================================//
-//================ SKILLS SLIDER ================
+//================ SKILLS CONVEYOR CAROUSEL ================
 
-const skillsSlider = document.querySelector(".skills-slider");
+const skillsSlider = document.getElementById('skillsSlider');
+const rightArrow = document.querySelector('.right-arrow');
+const leftArrow  = document.querySelector('.left-arrow');
 
-const rightArrow = document.querySelector(".right-arrow");
-const leftArrow = document.querySelector(".left-arrow");
-
-// RIGHT
-rightArrow.addEventListener("click", () => {
-  skillsSlider.scrollBy({
-    left: 320,
-    behavior: "smooth",
-  });
+// Pause on card hover — CSS :has() handles it too, but JS ensures broader support
+skillsSlider.addEventListener('mouseenter', () => {
+  skillsSlider.classList.add('paused');
+});
+skillsSlider.addEventListener('mouseleave', () => {
+  skillsSlider.classList.remove('paused');
 });
 
-// LEFT
-leftArrow.addEventListener("click", () => {
-  skillsSlider.scrollBy({
-    left: -320,
-    behavior: "smooth",
-  });
-});
+// Arrow buttons: nudge the animation offset manually
+let nudgeOffset = 0;
+const NUDGE = 264; // card width + gap
+
+function nudge(direction) {
+  // Temporarily pause, shift transform, then resume
+  const current = window.getComputedStyle(skillsSlider).transform;
+  const matrix = new DOMMatrix(current);
+  nudgeOffset += direction * NUDGE;
+  skillsSlider.style.animationPlayState = 'paused';
+  skillsSlider.style.transform = `translateX(${nudgeOffset}px)`;
+
+  setTimeout(() => {
+    skillsSlider.style.transform = '';
+    skillsSlider.style.animationPlayState = '';
+    nudgeOffset = 0;
+  }, 600);
+}
+
+rightArrow.addEventListener('click', () => nudge(-1));
+leftArrow.addEventListener('click',  () => nudge(1));
 
 //================ SOFT SKILLS POPUP ================
 
@@ -255,33 +268,3 @@ if (savedTheme) {
 }
 
 
-const skillCards = document.querySelectorAll(".skill-card");
-const slider = document.querySelector(".skills-slider");
-
-let positions = [
-  "pos-1",
-  "pos-2",
-  "pos-3",
-  "pos-4",
-  "pos-5",
-  "pos-6"
-];
-
-function rotateCarousel() {
-  positions.unshift(positions.pop());
-
-  skillCards.forEach((card, index) => {
-    card.classList.remove(
-      "pos-1",
-      "pos-2",
-      "pos-3",
-      "pos-4",
-      "pos-5",
-      "pos-6"
-    );
-
-    card.classList.add(positions[index]);
-  });
-}
-
-let carouselInterval = setInterval(rotateCarousel, 3000);
