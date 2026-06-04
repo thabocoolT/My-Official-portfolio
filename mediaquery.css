@@ -53,18 +53,16 @@ html, body {
   100% { transform: translate(-50%,-50%) translateY(0px); }
 }
 
-/*=======================RESPONSIVE===========================*/
-
-/* ─── 1200px: project grid goes 2-col ─── */
+/* =====================================================
+   1200px — project grid 2-col, contact reflow
+===================================================== */
 @media (max-width: 1200px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .contact-wrapper {
     grid-template-columns: 1fr 1.3fr;
   }
-
   .contact-info-panel {
     grid-column: 1 / -1;
     display: grid;
@@ -72,17 +70,13 @@ html, body {
     gap: 0 32px;
     align-items: start;
   }
-
-  .contact-info-panel h3 {
-    grid-column: 1 / -1;
-  }
-
-  .contact-social-row {
-    grid-column: 1 / -1;
-  }
+  .contact-info-panel h3 { grid-column: 1 / -1; }
+  .contact-social-row { grid-column: 1 / -1; }
 }
 
-/* ─── 992px ─── */
+/* =====================================================
+   992px — stack hero, reflow contact
+===================================================== */
 @media (max-width: 992px) {
   .nav-container { padding: 15px 40px; }
 
@@ -93,15 +87,11 @@ html, body {
     justify-content: center;
     gap: 40px;
   }
-
   .hero-content { max-width: 100%; text-align: center; }
   .hero-buttons { justify-content: center; }
   .social-icons { justify-content: center; }
 
-  .circle {
-    width: 360px; height: 360px;
-    transform: translate(-50%,-50%);
-  }
+  .circle { width: 360px; height: 360px; transform: translate(-50%,-50%); }
 
   .hero-image {
     position: relative;
@@ -110,23 +100,13 @@ html, body {
     align-items: center;
     margin-top: 20px;
   }
-
-  .hero-image img {
-    width: 300px;
-    max-width: 100%;
-    position: relative;
-    z-index: 2;
-    filter: drop-shadow(0 0 25px rgba(37,99,235,0.45));
-  }
-
+  .hero-image img { width: 300px; max-width: 100%; position: relative; z-index: 2; filter: drop-shadow(0 0 25px rgba(37,99,235,0.45)); }
   .hero { padding: 30px 20px 10px; }
 
   .about { padding: 60px 20px; }
   .about-container { flex-direction: column; text-align: center; }
-
   .section-title { margin-bottom: 40px; }
   .section-title h2 { font-size: 36px; }
-
   .about-content { align-items: flex-start; gap: 45px; }
   .about-left { padding-right: 15px; }
   .about-right { padding-left: 15px; gap: 18px; }
@@ -142,242 +122,359 @@ html, body {
   .projects-title { font-size: 38px; }
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-info-panel {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 32px;
-  }
-
-  .contact-info-panel h3,
-  .contact-social-row { grid-column: 1 / -1; }
+  .contact-wrapper { grid-template-columns: 1fr; }
+  .contact-info-panel { grid-template-columns: repeat(2, 1fr); gap: 0 32px; }
+  .contact-info-panel h3, .contact-social-row { grid-column: 1 / -1; }
 
   .logo { font-size: 0; }
   .logo::after { content: "TP Motau"; font-size: 28px; font-weight: 700; color: var(--primary); }
 }
 
-/* ─── 768px ─── */
+/* =====================================================
+   768px — mobile nav, hero, about compact
+===================================================== */
 @media (max-width: 768px) {
-  .navbar { padding: 20px 7%; }
 
+  /* ── NAVBAR ── */
+  .navbar {
+    top: 10px;
+    width: 94%;
+    border-radius: 16px;
+  }
+  .nav-container {
+    height: 54px;
+    padding: 0 16px;
+  }
   .burger { display: flex; }
-
-  .info-grid { grid-template-columns: 1fr; }
-
   .nav-links {
     position: fixed;
     top: 0; right: 0;
     width: 70%;
-    max-width: 320px;
+    max-width: 280px;
     height: auto;
     background: var(--card-bg);
     backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 100px 30px 40px;
-    gap: 25px;
+    padding: 90px 28px 36px;
+    gap: 22px;
     z-index: 1500;
     transform: translateX(100%);
     transition: transform 0.4s ease;
-    border-bottom-left-radius: 24px;
+    border-bottom-left-radius: 20px;
     overflow: hidden;
   }
-
   .nav-links.active { transform: translateX(0); }
-
   .nav-links a {
     color: var(--text-color);
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
-    text-shadow: 0 0 10px rgba(59,130,246,0.35),0 0 20px rgba(96,165,250,0.18);
   }
+  .nav-links a:hover { color: var(--primary); transform: translateY(-2px); }
+  .logo { font-size: 0; }
+  .logo::after { content: "TP Motau"; font-size: 22px; font-weight: 700; color: var(--primary); }
+  #themeBtn { width: 36px; height: 36px; }
+  #themeBtn i { font-size: 15px; }
 
-  .nav-links a:hover { color: #2563eb; transform: translateY(-2px); }
-
-  .nav-container { padding: 15px 20px; }
-
+  /* ── HERO ── */
   .hero {
-    padding: 120px 20px 50px;
+    padding: 90px 20px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
   }
-
   .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
+  .hero-content h1 { font-size: 30px; text-align: center; }
+  .hero-content h3 { font-size: 1.05rem; justify-content: center; }
+  .subtitle { font-size: 13.5px; padding: 0 4px; }
 
-  .hero-content h1 { font-size: 32px; text-align: center; }
-
+  /* Static image only on mobile — no hover swap */
   .hero-image {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 25px;
-    margin-bottom: 0;
+    margin-top: 20px;
+    margin-bottom: 4px;
+    width: 200px;
+    height: 200px;
   }
-
-  .hero-image img {
-    width: 250px; height: 250px;
+  .hero-image .img-hover { display: none !important; }
+  .hero-image .img-default {
+    opacity: 1 !important;
+    transform: none !important;
+    width: 200px;
+    height: 200px;
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 20px rgba(37,99,235,0.5));
+    filter: drop-shadow(0 0 18px rgba(37,99,235,0.5));
   }
+  /* Keep hover state inert on mobile */
+  .hero-image:hover .img-default { opacity: 1 !important; transform: none !important; }
+  .hero-image:hover .circle { transform: translate(-50%,-50%) !important; }
+  .hero-image:hover img { transform: none !important; }
 
   .circle {
     position: absolute;
-    width: 250px; height: 250px;
+    width: 200px; height: 200px;
     border-radius: 50%;
     left: 50%; top: 50%;
     transform: translate(-50%,-50%);
     z-index: 1;
     animation: floatCircle 4s ease-in-out infinite;
   }
+  .circle::before { inset: -10px; }
 
-  .circle::before { inset: -12px; }
+  .hero-buttons {
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .btn { padding: 10px 16px; font-size: 13.5px; }
+  .social-icons { justify-content: center; }
+  .social-icons a { width: 44px; height: 44px; }
 
-  .logo { font-size: 0; }
-  .logo::after { content: "TP Motau"; font-size: 28px; font-weight: 700; color: var(--primary); }
+  /* ── ABOUT ── */
+  .about { padding: 48px 15px; }
+  .about-container {
+    padding: 28px 18px;
+    border-radius: 18px;
+    margin-top: -30px;
+  }
+  .section-title { margin-bottom: 28px; }
+  .section-title h2 { font-size: 28px; }
+  .section-title h2::after { width: 60px; height: 3px; }
 
-  .hero-image:hover .circle { transform: translate(-50%,-50%) scale(0.92) rotate(180deg); }
-
-  .about { padding: 60px 15px; }
-  .about-container { padding: 35px 22px; border-radius: 20px; }
-  .section-title { margin-bottom: 35px; }
-  .section-title h2 { font-size: 30px; }
-  .section-title h2::after { width: 65px; height: 3px; }
-
-  .about-content { flex-direction: column; gap: 25px; }
+  .about-content {
+    flex-direction: column;
+    gap: 18px;
+    padding: 1.5rem;
+  }
   .about-left { padding-right: 0; width: 100%; }
-  .about-text p { font-size: 16px; line-height: 1.8; text-align: left; }
+  .about-text p { font-size: 14.5px; line-height: 1.75; text-align: left; }
   .about-divider { display: none; }
 
+  /* Info grid — 2×2 compact chips */
   .about-right {
-    display: none;
     width: 100%;
     padding-left: 0;
-    gap: 15px;
+    gap: 10px;
   }
+  /* Always visible on mobile as compact chips — no "show" toggle needed */
+  .about-right { display: flex !important; }
 
-  .about-right.show { display: flex; }
-
-  .info-item { gap: 14px; }
-  .info-item span { min-width: 40px; height: 40px; font-size: 17px; }
-  .info-item p { font-size: 15px; line-height: 1.6; }
-
-  .view-more-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 6px;
-    margin-top: 5px;
-    padding: 4px 10px;
-    font-size: 12px;
-    font-weight: 600;
-    border: none;
-    border-radius: 20px;
-    background: #2563eb;
-    color: #ffffff;
-    cursor: pointer;
-    transition: 0.3s ease;
-    vertical-align: middle;
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
-
-  .view-more-btn:hover { background: #1d4ed8; }
-
-  /* Skills */
-  .skills { padding: 70px 20px; }
-  .skills-title { font-size: 30px; }
-  .skills-slider-viewport {
-    mask-image: linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
-    -webkit-mask-image: linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
-  }
-  .skills-slider-wrapper { gap: 10px; }
-  .skill-card { min-width: 210px; padding: 24px 20px; width: 210px; }
-  .card-title { font-size: 15px; margin-bottom: 14px; }
-  .skill-card ul li { font-size: 13px; margin-bottom: 10px; }
-  .skills-arrow { display: flex; width: 38px; height: 38px; font-size: 14px; }
-  .soft-skills-btn-container { justify-content: center; }
-  .soft-skills { justify-content: center; }
-
-  /* Projects */
-  .projects { padding: 90px 20px; }
-  .projects-title { font-size: 30px; }
-  .projects-grid { grid-template-columns: 1fr; gap: 20px; }
-  .project-image { height: 200px; }
-  .project-content { padding: 20px; }
-  .project-content h3 { font-size: 18px; }
-  .project-buttons { flex-direction: column; }
-  .project-btn { text-align: center; }
-  .project-card:hover { transform: translateY(-8px) scale(1.02); }
-
-  /* Contact */
-  .contact { padding: 90px 20px 60px; }
-  .contact-title { font-size: 30px; margin-bottom: 40px; }
-
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .contact-intro-panel {
+  .info-item {
+    gap: 8px;
+    padding: 10px 10px;
+    border-radius: 12px;
     min-height: auto;
-    padding: 24px;
+    align-items: flex-start;
   }
+  .info-name {
+    width: 100%;
+    font-size: 14px;
+  }
+  .info-item span { width: 32px; height: 32px; font-size: 14px; min-width: 32px; }
+  .info-item p { font-size: 12px; line-height: 1.5; }
+  .info-item strong { font-size: 11px; }
 
-  .contact-intro-panel h2 { font-size: 22px; }
+  /* Hide view more btn — info always shown */
+  .view-more-btn { display: none !important; }
 
-  .contact-form { padding: 24px; }
+  /* ── SKILLS — disable conveyor, enable swipe ── */
+  .skills { padding: 56px 0 48px; overflow: hidden; }
+  .skills-container { padding: 2rem 0; }
+  .skills-title { font-size: 28px; margin-bottom: 36px; }
+  .skills-small-title { font-size: 11px; }
 
-  .form-row { grid-template-columns: 1fr; }
-
-  .contact-info-panel {
+  /* Kill the auto-scroll animation entirely */
+  .skills-slider {
+    animation: none !important;
+    animation-play-state: paused !important;
+    transform: none !important;
+    /* Switch to native horizontal scroll */
     display: flex;
-    flex-direction: column;
-    padding: 24px;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px 20px 12px;
+    width: 100%;
+    max-width: 100%;
   }
+  .skills-slider::-webkit-scrollbar { display: none; }
 
+  /* Hide the duplicate set */
+  .skill-card[aria-hidden="true"] { display: none !important; }
+
+  /* Card size — 4 visible at once = (viewport - padding) / 4 - gap */
+  .skill-card {
+    flex-shrink: 0;
+    width: calc((100vw - 40px - 30px) / 4);
+    min-width: 72px;
+    max-width: 90px;
+    min-height: auto;
+    padding: 12px 10px;
+    scroll-snap-align: start;
+    border-radius: 14px;
+  }
+  .card-title {
+    font-size: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .card-title i { font-size: 12px; }
+  .card-dot { display: none; }
+  .skill-card ul li { font-size: 10px; margin-bottom: 7px; gap: 5px; }
+  .skill-card ul li i { font-size: 12px; }
+
+  /* Arrow buttons hidden — use swipe */
+  .skills-arrow { display: none !important; }
+
+  /* Viewport mask — fade edges */
+  .skills-slider-viewport {
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+    padding: 0;
+  }
+  .skills-slider-wrapper { overflow: hidden; }
+
+  /* Soft skills */
+  .soft-skills-btn-container { justify-content: center; margin-top: 16px; }
+  .soft-skills-btn { font-size: 13px; padding: 10px 20px; }
+  .soft-skills { justify-content: center; padding: 28px 16px; }
+  .soft-skill-card { padding: 12px 16px; font-size: 13px; }
+
+  /* ── PROJECTS — horizontal swipe, 2 visible ── */
+  .projects { padding: 72px 0 56px; overflow: hidden; }
+  .projects-container { padding: 0; }
+  .projects-title { font-size: 28px; margin-bottom: 32px; }
+  .projects-small-title { font-size: 11px; }
+
+  /* Kill the grid, replace with horizontal scroll row */
+  .projects-grid {
+    display: flex !important;
+    grid-template-columns: unset !important;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px 20px 16px;
+    width: 100%;
+  }
+  .projects-grid::-webkit-scrollbar { display: none; }
+
+  /* 2 cards visible = (viewport - padding*2 - gap) / 2 */
+  .project-card {
+    flex-shrink: 0;
+    width: calc((100vw - 52px) / 2);
+    min-width: 150px;
+    max-width: 180px;
+    scroll-snap-align: start;
+    border-radius: 16px;
+    /* Kill reflection on mobile for performance */
+    animation: none;
+  }
+  .project-card::after { display: none; }
+  .project-image { height: 90px; border-radius: 16px 16px 0 0; }
+  .project-content { padding: 12px; }
+  .project-content h3 { font-size: 12px; margin-bottom: 5px; }
+  .project-content p { font-size: 10.5px; line-height: 1.5; margin-bottom: 8px; min-height: auto; }
+  .project-tech { gap: 4px; margin-bottom: 8px; }
+  .project-tech span { font-size: 9px; padding: 3px 7px; }
+  .project-buttons { flex-direction: column; gap: 5px; }
+  .project-btn { text-align: center; font-size: 10px; padding: 6px 10px; border-radius: 8px; }
+  .project-status { font-size: 9px; padding: 3px 8px; top: 8px; right: 8px; }
+
+  /* GitHub btn */
+  .more-projects { margin-top: 28px; padding: 0 20px; }
+  .github-projects-btn { font-size: 13px; padding: 12px 22px; }
+
+  /* ── CONTACT ── */
+  .contact { padding: 72px 20px 50px; }
+  .contact-title { font-size: 28px; margin-bottom: 32px; }
+  .contact-wrapper { grid-template-columns: 1fr; gap: 16px; }
+  .contact-intro-panel { min-height: auto; padding: 22px; }
+  .contact-intro-panel h2 { font-size: 20px; }
+  .contact-form { padding: 22px; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-info-panel { display: flex; flex-direction: column; padding: 22px; }
   .contact-social-row { justify-content: flex-start; }
+
+  /* ── FOOTER ── */
+  .footer-logo { display: none !important; }
+  .footer-container { flex-direction: column; text-align: center; gap: 12px; }
+  .footer-links { justify-content: center; flex-wrap: wrap; gap: 14px; }
+  .footer-socials { justify-content: center; }
+  .footer-copy { font-size: 12px; }
 }
 
-/* ─── 480px ─── */
+/* =====================================================
+   480px — tighten further
+===================================================== */
 @media (max-width: 480px) {
-  .hero { padding: 110px 15px 40px; }
-  .hero-content h1 { font-size: 28px; }
-  .hero-content h3 { font-size: 1.1rem; }
-  .subtitle { font-size: 14px; }
-  .btn { padding: 10px 16px; font-size: 14px; }
+  .hero { padding: 80px 15px 32px; }
+  .hero-content h1 { font-size: 26px; }
+  .hero-content h3 { font-size: 1rem; }
+  .subtitle { font-size: 13px; }
+  .btn { padding: 9px 14px; font-size: 13px; }
 
-  .about-container { padding: 25px 16px; }
-  .section-title h2 { font-size: 26px; }
+  .about-container { padding: 22px 14px; }
+  .section-title h2 { font-size: 24px; }
 
   .skills-title,
   .projects-title,
-  .contact-title { font-size: 26px; }
+  .contact-title { font-size: 24px; }
 
-  .projects-grid { grid-template-columns: 1fr; }
+  /* Skills — keep 4 but tighter */
+  .skill-card {
+    width: calc((100vw - 36px - 30px) / 4);
+    min-width: 65px;
+    padding: 10px 8px;
+  }
+  .card-title { font-size: 9px; }
+  .skill-card ul li { font-size: 9px; }
 
-  .skill-card { min-width: 185px; width: 185px; }
+  /* Projects — still 2 visible */
+  .project-card {
+    width: calc((100vw - 48px) / 2);
+    min-width: 140px;
+  }
 
-  .contact-intro-panel h2 { font-size: 20px; }
+  .contact-intro-panel h2 { font-size: 18px; }
   .contact-btn { width: 100%; justify-content: center; }
 
-  .footer-container { flex-direction: column; text-align: center; gap: 16px; }
-  .footer-links { justify-content: center; }
-  .footer-socials { justify-content: center; }
+  .soft-skills { padding: 20px 14px; }
+  .soft-skill-card { padding: 10px 14px; font-size: 13px; }
+}
 
-  .soft-skills { padding: 24px 16px; }
-  .soft-skill-card { padding: 12px 18px; font-size: 14px; }
+/* =====================================================
+   360px — very small phones
+===================================================== */
+@media (max-width: 360px) {
+  .hero-content h1 { font-size: 23px; }
+  .skill-card { min-width: 60px; padding: 8px 6px; }
+  .card-title { font-size: 8.5px; gap: 3px; }
+  .skill-card ul li { font-size: 8.5px; }
+  .project-card { min-width: 130px; }
 }

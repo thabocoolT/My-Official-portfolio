@@ -268,3 +268,86 @@ if (savedTheme) {
 }
 
 
+
+// =====================================================
+// MOBILE: Scroll-dot indicators + swipe hints
+// =====================================================
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+function injectScrollDots(containerSelector, rowSelector, dotClass) {
+  if (!isMobile()) return;
+  const container = document.querySelector(containerSelector);
+  const row = document.querySelector(rowSelector);
+  if (!container || !row) return;
+
+  // Remove existing dots if any
+  const existing = container.querySelector('.' + dotClass + '-wrap');
+  if (existing) existing.remove();
+
+  const items = row.querySelectorAll(':scope > *:not([aria-hidden="true"])');
+  if (items.length < 2) return;
+
+  const wrap = document.createElement('div');
+  wrap.className = dotClass + '-wrap';
+  wrap.style.cssText = 'display:flex;gap:5px;margin-top:10px;padding-left:20px;';
+
+  items.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.style.cssText = 'display:inline-block;height:5px;border-radius:3px;transition:all 0.3s ease;background:rgba(96,165,250,0.35);width:5px;';
+    if (i === 0) { dot.style.background = 'var(--accent,#00eaff)'; dot.style.width = '14px'; }
+    wrap.appendChild(dot);
+  });
+
+  container.querySelector(rowSelector.split(' ').pop())
+    ? container.appendChild(wrap)
+    : container.appendChild(wrap);
+
+  row.addEventListener('scroll', () => {
+    if (!isMobile()) return;
+    const dots = wrap.querySelectorAll('span');
+    const itemW = items[0].offsetWidth + 10;
+    const active = Math.round(row.scrollLeft / itemW);
+    dots.forEach((d, i) => {
+      if (i === active) {
+        d.style.background = 'var(--accent,#00eaff)';
+        d.style.width = '14px';
+      } else {
+        d.style.background = 'rgba(96,165,250,0.3)';
+        d.style.width = '5px';
+      }
+    });
+  }, { passive: true });
+}
+
+function addSwipeHint(containerSelector, label) {
+  if (!isMobile()) return;
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+  if (container.querySelector('.swipe-hint')) return;
+  const hint = document.createElement('p');
+  hint.className = 'swipe-hint';
+  hint.textContent = '⟵  ' + label + '  ⟶';
+  hint.style.cssText = 'font-size:10px;color:var(--soft-text,#6b7280);text-align:center;margin-top:6px;letter-spacing:0.5px;padding-right:20px;';
+  container.appendChild(hint);
+}
+
+function initMobileEnhancements() {
+  if (!isMobile()) return;
+
+  // Skills scroll dots
+  injectScrollDots('.skills-container', '#skillsSlider', 'skills-dots');
+  addSwipeHint('.skills-container', 'swipe to explore all skills');
+
+  // Projects scroll dots
+  injectScrollDots('.projects-container', '#projectsGrid', 'projects-dots');
+  addSwipeHint('.projects-container', 'swipe to browse all projects');
+}
+
+// Run on load and on resize
+window.addEventListener('load', initMobileEnhancements);
+window.addEventListener('resize', () => {
+  clearTimeout(window._resizeTimer);
+  window._resizeTimer = setTimeout(initMobileEnhancements, 200);
+});
