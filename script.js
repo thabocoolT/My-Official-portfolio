@@ -351,3 +351,305 @@ window.addEventListener('resize', () => {
   clearTimeout(window._resizeTimer);
   window._resizeTimer = setTimeout(initMobileEnhancements, 200);
 });
+
+// =====================================================
+// PROJECT MODAL — data + behaviour
+// =====================================================
+
+const projectData = {
+  securevision: {
+    icon: "🛡",
+    title: "SecureVision",
+    status: "In Progress",
+    statusClass: "in-progress",
+    tagline: "Intelligent facial recognition security system for automated authentication and threat detection.",
+    description:
+      "SecureVision is a real-time facial recognition security system built with computer vision and machine learning. It identifies authorized users from a live camera feed, flags unrecognized faces, and can trigger automated protective actions, aiming to give small setups (home offices, labs, server rooms) enterprise-style access monitoring without expensive hardware.",
+    features: [
+      "Real-time face detection and recognition from a live webcam feed",
+      "Confidence-based authentication, rejecting low-certainty matches",
+      "Automatic logging of every detection event with timestamp and snapshot",
+      "Configurable alert system for unrecognized faces",
+      "Lightweight enough to run continuously on a standard laptop or mini PC",
+    ],
+    tech: ["Python", "OpenCV", "AI & ML", "Computer Vision", "face_recognition", "NumPy"],
+    github: "https://github.com/thabocoolT/SecureVision",
+    demo: null,
+    docs: {
+      architecture:
+        "The system follows a three-stage pipeline: capture, recognition, and response. OpenCV pulls frames from the camera feed; each frame is passed through a face-detection model to locate face regions, which are then encoded and compared against a stored database of known face embeddings using the face_recognition library. A confidence threshold decides whether a match counts as authenticated. The response stage is decoupled from recognition so alerts, logging, or future hardware triggers (door locks, notifications) can be added without touching the core detection logic.",
+      setup: [
+        "Clone the repository: <code>git clone https://github.com/thabocoolT/SecureVision.git</code>",
+        "Create and activate a virtual environment: <code>python -m venv venv</code>",
+        "Install dependencies: <code>pip install -r requirements.txt</code>",
+        "Add reference images of authorized users to the <code>known_faces/</code> folder",
+        "Run the app: <code>python main.py</code>",
+      ],
+      usage:
+        "On launch, SecureVision opens the default webcam and begins scanning frames continuously. Recognized faces are outlined in green with the matched name displayed; unrecognized faces are outlined in red and logged to the events file with a timestamped snapshot. Press Q at any time to safely close the camera feed and exit.",
+      challenges:
+        "The biggest challenge was balancing recognition speed against accuracy on lower-end hardware, since running a full face-recognition model on every frame caused noticeable lag. This was addressed by only running full recognition every few frames and using lightweight detection in between. Lighting conditions also affected accuracy significantly, which pushed the confidence threshold to be tuned carefully to avoid false rejections.",
+      future: [
+        "Add multi-camera support for monitoring several entry points at once",
+        "Integrate with a hardware relay to control physical door locks",
+        "Build a small dashboard to review historical detection logs",
+        "Explore anti-spoofing checks (e.g. liveness detection) to prevent photo-based bypass",
+      ],
+    },
+  },
+
+  cisco: {
+    icon: "🌐",
+    title: "Cisco Network Project",
+    status: "Completed",
+    statusClass: "completed",
+    tagline: "Secure enterprise network infrastructure designed and simulated in Cisco Packet Tracer.",
+    description:
+      "This project models a realistic small-to-medium enterprise network: multiple departments, VLAN segmentation, inter-VLAN routing, and basic security hardening, all designed and tested entirely in Cisco Packet Tracer. The goal was to apply systems analysis and networking theory to a network that could plausibly run a real office, rather than a simplified textbook topology.",
+    features: [
+      "VLAN segmentation separating departments (e.g. HR, Finance, IT) for traffic isolation",
+      "Inter-VLAN routing configured on a Layer 3 switch / router",
+      "Access control lists (ACLs) restricting traffic between sensitive VLANs",
+      "DHCP configured per VLAN for automatic address assignment",
+      "Basic switch port security to prevent unauthorized device access",
+      "Full topology diagram documenting IP scheme, VLAN map, and device roles",
+    ],
+    tech: ["Cisco", "Networking", "Security", "Packet Tracer", "VLANs", "ACLs"],
+    github: null,
+    demo: null,
+    docs: {
+      architecture:
+        "The network is structured around a hierarchical design: a core router connects to a Layer 3 distribution switch, which fans out to access switches serving each department's VLAN. Each VLAN represents a logical department with its own IP subnet, and inter-VLAN routing is handled centrally so departments can reach shared resources (like a server VLAN) while ACLs block traffic between VLANs that shouldn't communicate directly, for example restricting the guest VLAN from reaching the finance VLAN.",
+      setup: [
+        "Install Cisco Packet Tracer (free for students via the Cisco Networking Academy)",
+        "Open the <code>.pkt</code> project file included in the repository",
+        "Review the topology diagram to understand VLAN and IP allocation",
+        "Click through each device's configuration tab to inspect VLAN, routing, and ACL settings",
+        "Use Simulation Mode to trace packets across VLANs and verify routing/ACL behaviour",
+      ],
+      usage:
+        "Open the project file in Packet Tracer and switch to Simulation Mode to test connectivity. Sending a ping from a PC in one VLAN to a PC in another demonstrates inter-VLAN routing in action, while attempting traffic between restricted VLANs (per the ACL rules) demonstrates that the security policy is enforced. Each device's terminal can also be opened directly to inspect its running configuration.",
+      challenges:
+        "Getting inter-VLAN routing and ACLs to coexist correctly was the trickiest part, since overly broad ACL rules ended up blocking legitimate DHCP and routing traffic. This required carefully ordering ACL statements and testing each rule in isolation with Packet Tracer's simulation tools before combining them. Subnetting the IP scheme cleanly across departments without wasting address space also took several redesigns.",
+      future: [
+        "Add a simulated VPN connection for secure remote access",
+        "Introduce redundant links with spanning tree protocol for failover",
+        "Simulate a firewall device for perimeter security between the network and the internet",
+        "Document the configuration as a reusable template for smaller offices",
+      ],
+    },
+  },
+
+  saferide: {
+    icon: "🗄",
+    title: "SafeRide Transport DB",
+    status: "Completed",
+    statusClass: "completed",
+    tagline: "Relational database system for SafeRide Transport Services built with Oracle SQL Developer.",
+    description:
+      "SafeRide Transport DB is a complete relational database designed to support the day-to-day operations of a transport service: managing drivers, vehicles, customers, bookings, and trip records. The project covers the full database lifecycle, from requirements analysis and ER modelling through to normalized schema design, implementation, and query development in Oracle SQL Developer.",
+    features: [
+      "Fully normalized schema (3NF) covering drivers, vehicles, customers, bookings, and trips",
+      "Entity-Relationship Diagram (ERD) documenting all entities and relationships",
+      "Referential integrity enforced through primary and foreign key constraints",
+      "Stored procedures and functions for common operations (e.g. booking creation, fare calculation)",
+      "Advanced SQL queries for reporting: driver performance, revenue by route, booking trends",
+      "Triggers to maintain data consistency (e.g. auto-updating vehicle availability)",
+    ],
+    tech: ["Oracle SQL", "ERD", "DB Design", "SQL", "PL/SQL", "Normalization"],
+    github: "https://github.com/thabocoolT/SafeRide-Transport-DBMS",
+    demo: null,
+    docs: {
+      architecture:
+        "The database is modelled around five core entities: Drivers, Vehicles, Customers, Bookings, and Trips, connected through foreign-key relationships that mirror how a real transport booking flows: a customer creates a booking, a booking is assigned a driver and vehicle, and a completed booking becomes a trip record. The schema was normalized to third normal form (3NF) to eliminate redundancy, with stored procedures encapsulating business logic like fare calculation so the same rules apply consistently regardless of which application calls the database.",
+      setup: [
+        "Install Oracle Database (Express Edition) and Oracle SQL Developer",
+        "Clone the repository: <code>git clone https://github.com/thabocoolT/SafeRide-Transport-DBMS.git</code>",
+        "Open SQL Developer and connect to your local Oracle instance",
+        "Run the schema creation script (<code>schema.sql</code>) to build all tables and constraints",
+        "Run the seed data script (<code>seed_data.sql</code>) to populate sample drivers, vehicles, and bookings",
+      ],
+      usage:
+        "Once the schema and seed data are loaded, the included query scripts can be run directly in SQL Developer to explore the system: creating a new booking, calculating a trip fare through the stored procedure, or generating reports such as monthly revenue per route or top-performing drivers. The ERD included in the repository is a useful reference for understanding how each query traverses the relationships between tables.",
+      challenges:
+        "The hardest part was getting the normalization right without overcomplicating the schema; an early version had too many join tables and made simple queries unnecessarily slow. Simplifying the relationships while still avoiding data duplication took a few redesign passes. Writing the fare-calculation stored procedure also required careful handling of edge cases like cancelled bookings and partial trips so reports stayed accurate.",
+      future: [
+        "Add a reporting view layer for dashboards (e.g. integrate with Power BI)",
+        "Introduce a driver ratings table to track service quality over time",
+        "Add table partitioning for the trips table as historical data grows",
+        "Build a lightweight front-end to interact with the database without writing raw SQL",
+      ],
+    },
+  },
+
+  aiassistant: {
+    icon: "🤖",
+    title: "Windows AI Assistant",
+    status: "In Progress",
+    statusClass: "in-progress",
+    tagline: "AI-powered desktop voice assistant for task automation and productivity.",
+    description:
+      "Windows AI Assistant is a voice-activated desktop assistant that listens for spoken commands and uses AI to interpret intent and carry out tasks: opening applications, searching the web, summarizing text, and automating repetitive actions. It's built to feel like a lightweight, personal alternative to built-in assistants, with room to plug in custom skills.",
+    features: [
+      "Voice command recognition using speech-to-text",
+      "Natural language understanding powered by the OpenAI API",
+      "Task automation: opening apps, controlling media, searching the web",
+      "Text summarization and quick Q&A on demand",
+      "Modular skill system so new commands can be added without touching core logic",
+    ],
+    tech: ["Python", "AI", "Automation", "OpenAI API", "Speech Recognition", "pyttsx3"],
+    github: null,
+    demo: null,
+    docs: {
+      architecture:
+        "The assistant runs a continuous listen-transcribe-interpret-act loop. Audio is captured and converted to text via a speech-recognition library, the transcribed text is sent to the OpenAI API to classify intent and extract parameters, and the result is routed to the matching skill handler, a small Python function responsible for one task (opening an app, fetching a summary, and so on). This modular skill design means new capabilities can be added as standalone functions registered with the dispatcher, without modifying the listening or interpretation logic.",
+      setup: [
+        "Clone the repository and navigate into the project folder",
+        "Create a virtual environment and activate it",
+        "Install dependencies: <code>pip install -r requirements.txt</code>",
+        "Add your OpenAI API key to a <code>.env</code> file as <code>OPENAI_API_KEY=your_key_here</code>",
+        "Run the assistant: <code>python assistant.py</code>",
+      ],
+      usage:
+        "Once running, the assistant listens passively for a wake phrase. After being activated, it accepts a spoken command, for example asking it to open an application, search for information, or summarize a block of clipboard text, and responds both with synthesized speech and an on-screen confirmation of the action taken.",
+      challenges:
+        "Reliable wake-word detection without excessive false triggers was the main early hurdle, since background noise frequently activated the assistant unintentionally. Tuning the sensitivity and adding a short confirmation chime helped considerably. Latency from the AI API call was also noticeable during conversational commands, which led to adding local fallback handling for simple, frequently used commands so they don't depend on a network round-trip.",
+      future: [
+        "Add offline command handling for core actions to reduce API dependency",
+        "Build a small settings UI instead of editing config files directly",
+        "Support custom user-defined skills via a plugin folder",
+        "Add multi-turn conversation memory for follow-up commands",
+      ],
+    },
+  },
+};
+
+const projectModal = document.getElementById("projectModal");
+const closeModalBtn = document.getElementById("closeModal");
+
+const modalStatus = document.getElementById("modalStatus");
+const modalTitle = document.getElementById("modalTitle");
+const modalTagline = document.getElementById("modalTagline");
+const modalDescription = document.getElementById("modalDescription");
+const modalFeatures = document.getElementById("modalFeatures");
+const modalTech = document.getElementById("modalTech");
+const modalLinks = document.getElementById("modalLinks");
+
+const docArchitecture = document.getElementById("docArchitecture");
+const docSetup = document.getElementById("docSetup");
+const docUsage = document.getElementById("docUsage");
+const docChallenges = document.getElementById("docChallenges");
+const docFuture = document.getElementById("docFuture");
+
+function populateModal(key) {
+  const data = projectData[key];
+  if (!data) return;
+
+  modalStatus.textContent = data.status;
+  modalStatus.className = "modal-status " + data.statusClass;
+  modalTitle.textContent = data.icon + " " + data.title;
+  modalTagline.textContent = data.tagline;
+  modalDescription.textContent = data.description;
+
+  modalFeatures.innerHTML = "";
+  data.features.forEach((feature) => {
+    const li = document.createElement("li");
+    li.textContent = feature;
+    modalFeatures.appendChild(li);
+  });
+
+  modalTech.innerHTML = "";
+  data.tech.forEach((tech) => {
+    const span = document.createElement("span");
+    span.textContent = tech;
+    modalTech.appendChild(span);
+  });
+
+  modalLinks.innerHTML = "";
+  if (data.github) {
+    const a = document.createElement("a");
+    a.href = data.github;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.className = "modal-link-btn modal-link-primary";
+    a.innerHTML = '<i class="fa-brands fa-github"></i> View on GitHub';
+    modalLinks.appendChild(a);
+  }
+  if (data.demo) {
+    const a = document.createElement("a");
+    a.href = data.demo;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.className = "modal-link-btn modal-link-secondary";
+    a.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo';
+    modalLinks.appendChild(a);
+  }
+
+  docArchitecture.textContent = data.docs.architecture;
+
+  docSetup.innerHTML = "";
+  data.docs.setup.forEach((step) => {
+    const li = document.createElement("li");
+    li.innerHTML = step;
+    docSetup.appendChild(li);
+  });
+
+  docUsage.textContent = data.docs.usage;
+  docChallenges.textContent = data.docs.challenges;
+
+  docFuture.innerHTML = "";
+  data.docs.future.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    docFuture.appendChild(li);
+  });
+}
+
+function openProjectModal(key) {
+  populateModal(key);
+
+  // Reset to overview tab every time the modal opens
+  document.querySelectorAll(".modal-tab").forEach((tab) => tab.classList.remove("active"));
+  document.querySelectorAll(".modal-panel").forEach((panel) => panel.classList.remove("active"));
+  document.querySelector('.modal-tab[data-tab="overview"]').classList.add("active");
+  document.getElementById("panelOverview").classList.add("active");
+
+  projectModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProjectModal() {
+  projectModal.classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".view-project-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const key = btn.getAttribute("data-project");
+    openProjectModal(key);
+  });
+});
+
+closeModalBtn.addEventListener("click", closeProjectModal);
+
+projectModal.addEventListener("click", (e) => {
+  if (e.target === projectModal) closeProjectModal();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && projectModal.classList.contains("show")) {
+    closeProjectModal();
+  }
+});
+
+document.querySelectorAll(".modal-tab").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".modal-tab").forEach((t) => t.classList.remove("active"));
+    document.querySelectorAll(".modal-panel").forEach((p) => p.classList.remove("active"));
+
+    tab.classList.add("active");
+    const panelId = tab.getAttribute("data-tab") === "overview" ? "panelOverview" : "panelDocs";
+    document.getElementById(panelId).classList.add("active");
+  });
+});

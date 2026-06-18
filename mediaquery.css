@@ -438,6 +438,24 @@ html, body {
   .more-projects { margin-top: 24px; padding: 0 18px; }
   .github-projects-btn { font-size: 12.5px; padding: 11px 20px; }
 
+  /* ── PROJECT MODAL ── */
+  .project-modal { padding: 14px; }
+  .modal-content { padding: 1.5rem 1.3rem; max-height: 88vh; border-radius: 18px; }
+  .close-modal { top: 14px; right: 14px; width: 32px; height: 32px; font-size: 20px; }
+  .modal-header { padding-right: 34px; }
+  .modal-status { font-size: 10px; padding: 4px 12px; margin-bottom: 9px; }
+  .modal-header-text h2 { font-size: 20px; }
+  .modal-tagline { font-size: 12.5px; }
+  .modal-tabs { gap: 4px; margin: 16px 0 16px; }
+  .modal-tab { font-size: 13px; margin-right: 14px; padding: 8px 2px; }
+  .modal-description { font-size: 12.5px; margin-bottom: 18px; }
+  .modal-content h3 { font-size: 13.5px; margin-top: 18px; }
+  .modal-content ul li, .modal-content ol li { font-size: 12px; }
+  .modal-tech span { font-size: 11px; padding: 5px 12px; }
+  .modal-links { gap: 8px; margin-top: 18px; }
+  .modal-link-btn { font-size: 12px; padding: 9px 16px; }
+  .doc-section { margin-bottom: 20px; }
+
   /* ── CONTACT ── */
   .contact { padding: 44px 16px 36px; }
   .contact-title { font-size: 22px; margin-bottom: 22px; }

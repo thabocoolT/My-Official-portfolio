@@ -417,9 +417,6 @@
           <div class="soft-skill-card">⏱ Time Management</div>
           <div class="soft-skill-card">🚀 Adaptability</div>
           <div class="soft-skill-card">🎯 Leadership</div>
-          <div class="soft-skill-card">📚 Continuous Learning</div>
-          <div class="soft-skill-card">🤔 Critical Thinking</div>
-          <div class="soft-skill-card">🌐 Cultural Awareness
         </div>
       </div>
     </section>
@@ -451,7 +448,7 @@
                 ><span>Computer Vision</span>
               </div>
               <div class="project-buttons">
-                <a href="#" class="project-btn primary-btn">View Project</a>
+                <a href="#" class="project-btn primary-btn view-project-btn" data-project="securevision">View Project</a>
                 <a
                   href="https://github.com/thabocoolT/SecureVision"
                   class="project-btn secondary-btn"
@@ -485,7 +482,7 @@
                 ><span>Packet Tracer</span>
               </div>
               <div class="project-buttons">
-                <a href="#" class="project-btn primary-btn">View Project</a>
+                <a href="#" class="project-btn primary-btn view-project-btn" data-project="cisco">View Project</a>
                 <a href="#" class="project-btn secondary-btn">GitHub</a>
               </div>
             </div>
@@ -512,7 +509,7 @@
                 ><span>SQL</span>
               </div>
               <div class="project-buttons">
-                <a href="#" class="project-btn primary-btn">View Project</a>
+                <a href="#" class="project-btn primary-btn view-project-btn" data-project="saferide">View Project</a>
                 <a
                   href="https://github.com/thabocoolT/SafeRide-Transport-DBMS"
                   class="project-btn secondary-btn"
@@ -546,7 +543,7 @@
                 ><span>OpenAI API</span>
               </div>
               <div class="project-buttons">
-                <a href="#" class="project-btn primary-btn">View Project</a>
+                <a href="#" class="project-btn primary-btn view-project-btn" data-project="aiassistant">View Project</a>
                 <a href="#" class="project-btn secondary-btn">GitHub</a>
               </div>
             </div>
@@ -736,22 +733,53 @@
     <div class="project-modal" id="projectModal">
       <div class="modal-content">
         <span class="close-modal" id="closeModal">&times;</span>
-        <h2>🛡 SecureVision</h2>
-        <p>
-          SecureVision is an intelligent facial recognition security system
-          designed using computer vision and machine learning principles for
-          secure authentication and automatic system protection.
-        </p>
-        <h3>Key Features</h3>
-        <ul>
-          <li>Advanced facial recognition technology</li>
-          <li>Real-time security monitoring</li>
-          <li>Automated threat detection</li>
-          <li>AI-powered detection</li>
-        </ul>
-        <div class="modal-tech">
-          <span>Python</span><span>OpenCv</span><span>AI &amp; ML</span
-          ><span>Computer Vision</span>
+
+        <div class="modal-header">
+          <div class="modal-header-text">
+            <span class="modal-status" id="modalStatus">Status</span>
+            <h2 id="modalTitle">Project title</h2>
+            <p class="modal-tagline" id="modalTagline">Project tagline</p>
+          </div>
+        </div>
+
+        <div class="modal-tabs">
+          <button class="modal-tab active" data-tab="overview">Overview</button>
+          <button class="modal-tab" data-tab="docs">Documentation</button>
+        </div>
+
+        <div class="modal-panel active" id="panelOverview">
+          <p class="modal-description" id="modalDescription"></p>
+
+          <h3>Key Features</h3>
+          <ul id="modalFeatures"></ul>
+
+          <h3>Tech Stack</h3>
+          <div class="modal-tech" id="modalTech"></div>
+
+          <div class="modal-links" id="modalLinks"></div>
+        </div>
+
+        <div class="modal-panel" id="panelDocs">
+          <div class="doc-section">
+            <h3><i class="fa-solid fa-diagram-project"></i> Architecture &amp; Approach</h3>
+            <p id="docArchitecture"></p>
+          </div>
+          <div class="doc-section">
+            <h3><i class="fa-solid fa-download"></i> Setup &amp; Installation</h3>
+            <ol id="docSetup"></ol>
+          </div>
+          <div class="doc-section">
+            <h3><i class="fa-solid fa-play"></i> Usage</h3>
+            <p id="docUsage"></p>
+          </div>
+          <div class="doc-section">
+            <h3><i class="fa-solid fa-triangle-exclamation"></i> Challenges &amp; Learnings</h3>
+            <p id="docChallenges"></p>
+          </div>
+          <div class="doc-section">
+            <h3><i class="fa-solid fa-road"></i> Future Improvements</h3>
+            <ul id="docFuture"></ul>
+          </div>
         </div>
       </div>
     </div>
