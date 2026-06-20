@@ -1,3 +1,83 @@
+// =====================================================
+// PARALLAX BACKGROUND SCROLL SYSTEM
+// =====================================================
+(function () {
+  const skyLayer      = document.querySelector('.sky-layer');
+  const starsLayer    = document.querySelector('.stars-layer');
+  const auroraLayer   = document.querySelector('.aurora-layer');
+  const orbLayer      = document.querySelector('.orb-layer');
+  const mountainBack  = document.querySelector('.mountain-back');
+  const mountainFront = document.querySelector('.mountain-front');
+  const terrainLayer  = document.querySelector('.terrain-layer');
+  const gridLayer     = document.querySelector('.grid-layer');
+
+  if (!gridLayer) return;
+
+  // Total scrollable height — layers reach full reveal at the contact section
+  // Adjust this if your page is taller/shorter
+  const TOTAL = document.body.scrollHeight - window.innerHeight;
+
+  let ticking = false;
+
+  function applyParallax() {
+    const y = window.scrollY;
+    const p = Math.min(y / TOTAL, 1); // 0 = top, 1 = bottom
+
+    // Sky & stars: always visible, drift very slowly upward
+    if (skyLayer)   skyLayer.style.transform   = `translateY(${y * -0.03}px)`;
+    if (starsLayer) starsLayer.style.transform = `translateY(${y * -0.06}px)`;
+    if (auroraLayer) auroraLayer.style.transform = `translateY(${y * -0.10}px)`;
+    if (orbLayer)   orbLayer.style.transform   = `translateY(${y * -0.12}px)`;
+
+    // Mountain back: starts hidden below, fades + rises in from ~15% scroll
+    if (mountainBack) {
+      const prog = Math.max(0, (p - 0.12) / 0.45);
+      mountainBack.style.opacity   = Math.min(prog * 0.6, 0.6);
+      mountainBack.style.transform = `translateY(${(1 - prog) * 90}px)`;
+    }
+
+    // Mountain front: slightly later, rises faster
+    if (mountainFront) {
+      const prog = Math.max(0, (p - 0.22) / 0.38);
+      mountainFront.style.opacity   = Math.min(prog * 0.75, 0.75);
+      mountainFront.style.transform = `translateY(${(1 - prog) * 70}px)`;
+    }
+
+    // Terrain: fades in at ~50%
+    if (terrainLayer) {
+      const prog = Math.max(0, (p - 0.48) / 0.3);
+      terrainLayer.style.opacity = Math.min(prog, 1);
+    }
+
+    // Grid: rises from bottom, becomes fully visible at contact section
+    if (gridLayer) {
+      const prog = Math.max(0, (p - 0.62) / 0.35);
+      gridLayer.style.opacity   = Math.min(prog * 0.85, 0.85);
+      gridLayer.style.transform =
+        `perspective(900px) rotateX(80deg) scaleY(2.2) translateY(${(1 - prog) * 130}px)`;
+    }
+
+    ticking = false;
+  }
+
+  // Recalculate TOTAL on resize since content height can change
+  let total = document.body.scrollHeight - window.innerHeight;
+  window.addEventListener('resize', () => {
+    total = document.body.scrollHeight - window.innerHeight;
+  });
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(applyParallax); ticking = true; }
+  }, { passive: true });
+
+  // Run once on load
+  applyParallax();
+})();
+
+
+
+
+
 // ================= ACTIVE NAVIGATION =================//
 const sections = document.querySelectorAll("section");
 const navLinksAll = document.querySelectorAll(".nav-links a");
