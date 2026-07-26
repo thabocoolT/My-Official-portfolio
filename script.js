@@ -470,7 +470,6 @@ const projectData = {
       "Hero Banner Management-> Admin controls home page auto-swiping banner-featured-listings, reviews and news slides",
       "Software Delete Strategy-> Users, listings, reviews, and conversations are never hard deleted-DeletedAt preserved for audits",
       "ASP .NET MVC Frontend-> Server-rendered Razor pages built from 31 high-fidelity wireframes",
-
     ],
     tech: [
       "C#",
@@ -484,20 +483,19 @@ const projectData = {
     github: "https://github.com/thabocoolT/VarsityTrade",
     demo: null,
     docs: {
-      architecture:[
+      architecture: [
         "Varsity Trade is built on a clean layered architecture- a pattern widely used in professional .NET applications. The solution is split into four separate projects, each with a single responsibilty.",
         "Dependencies floe strictly inward: nothing in Core knows about Infrastructure or API, and nothing in infrastructure knows about the API. This separation makes the codebase testable, maintanble, and easy to scare.",
       ],
       setup: [
         "Full setup instructions will be published here once the project reaches Phase 7 — Deployment. The backend API, frontend, and mobile app will each have their own setup steps.",
-        
       ],
-      usage:[
+      usage: [
         "On launch the API starts and the startup seeder automatically checks and populates all lookup tables — 21 universities, 33 categories, 4 item conditions, 6 listing statuses, and 5 system settings — if they are not already present. No manual database setup is required beyond running the migration.",
         "From Swagger or any API client, a new student registers by providing their name, email, password, university, and location. The platform issues a JWT access token valid for 60 minutes and a refresh token valid for 7 days. All subsequent requests use the access token in the Authorization header.",
         "Once registered, a student browses listings locked to their university — they cannot see listings from any other campus. When they are ready to sell, they activate a seller profile in one request, giving their shop a name and setting their pickup preferences. From that point they can create listings, receive offers, message buyers, and manage their shop — all without leaving their campus marketplace.",
       ],
-        challenges:
+      challenges:
         "Once registered, a student browses listings locked to their university — they cannot see listings from any other campus. When they are ready to sell, they activate a seller profile in one request, giving their shop a name and setting their pickup preferences. From that point they can create listings, receive offers, message buyers, and manage their shop — all without leaving their campus marketplace.",
       future: [
         "Complete the ASP.NET MVC Razor frontend built from the 31 existing high-fidelity wireframes",
