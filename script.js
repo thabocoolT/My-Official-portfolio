@@ -2,14 +2,14 @@
 // PARALLAX BACKGROUND SCROLL SYSTEM
 // =====================================================
 (function () {
-  const skyLayer      = document.querySelector('.sky-layer');
-  const starsLayer    = document.querySelector('.stars-layer');
-  const auroraLayer   = document.querySelector('.aurora-layer');
-  const orbLayer      = document.querySelector('.orb-layer');
-  const mountainBack  = document.querySelector('.mountain-back');
-  const mountainFront = document.querySelector('.mountain-front');
-  const terrainLayer  = document.querySelector('.terrain-layer');
-  const gridLayer     = document.querySelector('.grid-layer');
+  const skyLayer = document.querySelector(".sky-layer");
+  const starsLayer = document.querySelector(".stars-layer");
+  const auroraLayer = document.querySelector(".aurora-layer");
+  const orbLayer = document.querySelector(".orb-layer");
+  const mountainBack = document.querySelector(".mountain-back");
+  const mountainFront = document.querySelector(".mountain-front");
+  const terrainLayer = document.querySelector(".terrain-layer");
+  const gridLayer = document.querySelector(".grid-layer");
 
   if (!gridLayer) return;
 
@@ -24,22 +24,22 @@
     const p = Math.min(y / TOTAL, 1); // 0 = top, 1 = bottom
 
     // Sky & stars: always visible, drift very slowly upward
-    if (skyLayer)   skyLayer.style.transform   = `translateY(${y * -0.03}px)`;
+    if (skyLayer) skyLayer.style.transform = `translateY(${y * -0.03}px)`;
     if (starsLayer) starsLayer.style.transform = `translateY(${y * -0.06}px)`;
-    if (auroraLayer) auroraLayer.style.transform = `translateY(${y * -0.10}px)`;
-    if (orbLayer)   orbLayer.style.transform   = `translateY(${y * -0.12}px)`;
+    if (auroraLayer) auroraLayer.style.transform = `translateY(${y * -0.1}px)`;
+    if (orbLayer) orbLayer.style.transform = `translateY(${y * -0.12}px)`;
 
     // Mountain back: starts hidden below, fades + rises in from ~15% scroll
     if (mountainBack) {
       const prog = Math.max(0, (p - 0.12) / 0.45);
-      mountainBack.style.opacity   = Math.min(prog * 0.6, 0.6);
+      mountainBack.style.opacity = Math.min(prog * 0.6, 0.6);
       mountainBack.style.transform = `translateY(${(1 - prog) * 90}px)`;
     }
 
     // Mountain front: slightly later, rises faster
     if (mountainFront) {
       const prog = Math.max(0, (p - 0.22) / 0.38);
-      mountainFront.style.opacity   = Math.min(prog * 0.75, 0.75);
+      mountainFront.style.opacity = Math.min(prog * 0.75, 0.75);
       mountainFront.style.transform = `translateY(${(1 - prog) * 70}px)`;
     }
 
@@ -52,9 +52,8 @@
     // Grid: rises from bottom, becomes fully visible at contact section
     if (gridLayer) {
       const prog = Math.max(0, (p - 0.62) / 0.35);
-      gridLayer.style.opacity   = Math.min(prog * 0.85, 0.85);
-      gridLayer.style.transform =
-        `perspective(900px) rotateX(80deg) scaleY(2.2) translateY(${(1 - prog) * 130}px)`;
+      gridLayer.style.opacity = Math.min(prog * 0.85, 0.85);
+      gridLayer.style.transform = `perspective(900px) rotateX(80deg) scaleY(2.2) translateY(${(1 - prog) * 130}px)`;
     }
 
     ticking = false;
@@ -62,21 +61,24 @@
 
   // Recalculate TOTAL on resize since content height can change
   let total = document.body.scrollHeight - window.innerHeight;
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     total = document.body.scrollHeight - window.innerHeight;
   });
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(applyParallax); ticking = true; }
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(applyParallax);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
 
   // Run once on load
   applyParallax();
 })();
-
-
-
-
 
 // ================= ACTIVE NAVIGATION =================//
 const sections = document.querySelectorAll("section");
@@ -190,16 +192,16 @@ typeEffect();
 //===================================================================//
 //================ SKILLS CONVEYOR CAROUSEL ================
 
-const skillsSlider = document.getElementById('skillsSlider');
-const rightArrow = document.querySelector('.right-arrow');
-const leftArrow  = document.querySelector('.left-arrow');
+const skillsSlider = document.getElementById("skillsSlider");
+const rightArrow = document.querySelector(".right-arrow");
+const leftArrow = document.querySelector(".left-arrow");
 
 // Pause on card hover — CSS :has() handles it too, but JS ensures broader support
-skillsSlider.addEventListener('mouseenter', () => {
-  skillsSlider.classList.add('paused');
+skillsSlider.addEventListener("mouseenter", () => {
+  skillsSlider.classList.add("paused");
 });
-skillsSlider.addEventListener('mouseleave', () => {
-  skillsSlider.classList.remove('paused');
+skillsSlider.addEventListener("mouseleave", () => {
+  skillsSlider.classList.remove("paused");
 });
 
 // Arrow buttons: nudge the animation offset manually
@@ -211,18 +213,18 @@ function nudge(direction) {
   const current = window.getComputedStyle(skillsSlider).transform;
   const matrix = new DOMMatrix(current);
   nudgeOffset += direction * NUDGE;
-  skillsSlider.style.animationPlayState = 'paused';
+  skillsSlider.style.animationPlayState = "paused";
   skillsSlider.style.transform = `translateX(${nudgeOffset}px)`;
 
   setTimeout(() => {
-    skillsSlider.style.transform = '';
-    skillsSlider.style.animationPlayState = '';
+    skillsSlider.style.transform = "";
+    skillsSlider.style.animationPlayState = "";
     nudgeOffset = 0;
   }, 600);
 }
 
-rightArrow.addEventListener('click', () => nudge(-1));
-leftArrow.addEventListener('click',  () => nudge(1));
+rightArrow.addEventListener("click", () => nudge(-1));
+leftArrow.addEventListener("click", () => nudge(1));
 
 //================ SOFT SKILLS POPUP ================
 
@@ -347,8 +349,6 @@ if (savedTheme) {
   document.body.classList.toggle("dark-mode", savedTheme === "dark");
 }
 
-
-
 // =====================================================
 // MOBILE: Scroll-dot indicators + swipe hints
 // =====================================================
@@ -363,53 +363,63 @@ function injectScrollDots(containerSelector, rowSelector, dotClass) {
   if (!container || !row) return;
 
   // Remove existing dots if any
-  const existing = container.querySelector('.' + dotClass + '-wrap');
+  const existing = container.querySelector("." + dotClass + "-wrap");
   if (existing) existing.remove();
 
   const items = row.querySelectorAll(':scope > *:not([aria-hidden="true"])');
   if (items.length < 2) return;
 
-  const wrap = document.createElement('div');
-  wrap.className = dotClass + '-wrap';
-  wrap.style.cssText = 'display:flex;gap:5px;margin-top:10px;padding-left:20px;';
+  const wrap = document.createElement("div");
+  wrap.className = dotClass + "-wrap";
+  wrap.style.cssText =
+    "display:flex;gap:5px;margin-top:10px;padding-left:20px;";
 
   items.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.style.cssText = 'display:inline-block;height:5px;border-radius:3px;transition:all 0.3s ease;background:rgba(96,165,250,0.35);width:5px;';
-    if (i === 0) { dot.style.background = 'var(--accent,#00eaff)'; dot.style.width = '14px'; }
+    const dot = document.createElement("span");
+    dot.style.cssText =
+      "display:inline-block;height:5px;border-radius:3px;transition:all 0.3s ease;background:rgba(96,165,250,0.35);width:5px;";
+    if (i === 0) {
+      dot.style.background = "var(--accent,#00eaff)";
+      dot.style.width = "14px";
+    }
     wrap.appendChild(dot);
   });
 
-  container.querySelector(rowSelector.split(' ').pop())
+  container.querySelector(rowSelector.split(" ").pop())
     ? container.appendChild(wrap)
     : container.appendChild(wrap);
 
-  row.addEventListener('scroll', () => {
-    if (!isMobile()) return;
-    const dots = wrap.querySelectorAll('span');
-    const itemW = items[0].offsetWidth + 10;
-    const active = Math.round(row.scrollLeft / itemW);
-    dots.forEach((d, i) => {
-      if (i === active) {
-        d.style.background = 'var(--accent,#00eaff)';
-        d.style.width = '14px';
-      } else {
-        d.style.background = 'rgba(96,165,250,0.3)';
-        d.style.width = '5px';
-      }
-    });
-  }, { passive: true });
+  row.addEventListener(
+    "scroll",
+    () => {
+      if (!isMobile()) return;
+      const dots = wrap.querySelectorAll("span");
+      const itemW = items[0].offsetWidth + 10;
+      const active = Math.round(row.scrollLeft / itemW);
+      dots.forEach((d, i) => {
+        if (i === active) {
+          d.style.background = "var(--accent,#00eaff)";
+          d.style.width = "14px";
+        } else {
+          d.style.background = "rgba(96,165,250,0.3)";
+          d.style.width = "5px";
+        }
+      });
+    },
+    { passive: true },
+  );
 }
 
 function addSwipeHint(containerSelector, label) {
   if (!isMobile()) return;
   const container = document.querySelector(containerSelector);
   if (!container) return;
-  if (container.querySelector('.swipe-hint')) return;
-  const hint = document.createElement('p');
-  hint.className = 'swipe-hint';
-  hint.textContent = '⟵  ' + label + '  ⟶';
-  hint.style.cssText = 'font-size:10px;color:var(--soft-text,#6b7280);text-align:center;margin-top:6px;letter-spacing:0.5px;padding-right:20px;';
+  if (container.querySelector(".swipe-hint")) return;
+  const hint = document.createElement("p");
+  hint.className = "swipe-hint";
+  hint.textContent = "⟵  " + label + "  ⟶";
+  hint.style.cssText =
+    "font-size:10px;color:var(--soft-text,#6b7280);text-align:center;margin-top:6px;letter-spacing:0.5px;padding-right:20px;";
   container.appendChild(hint);
 }
 
@@ -417,17 +427,17 @@ function initMobileEnhancements() {
   if (!isMobile()) return;
 
   // Skills scroll dots
-  injectScrollDots('.skills-container', '#skillsSlider', 'skills-dots');
-  addSwipeHint('.skills-container', 'swipe to explore all skills');
+  injectScrollDots(".skills-container", "#skillsSlider", "skills-dots");
+  addSwipeHint(".skills-container", "swipe to explore all skills");
 
   // Projects scroll dots
-  injectScrollDots('.projects-container', '#projectsGrid', 'projects-dots');
-  addSwipeHint('.projects-container', 'swipe to browse all projects');
+  injectScrollDots(".projects-container", "#projectsGrid", "projects-dots");
+  addSwipeHint(".projects-container", "swipe to browse all projects");
 }
 
 // Run on load and on resize
-window.addEventListener('load', initMobileEnhancements);
-window.addEventListener('resize', () => {
+window.addEventListener("load", initMobileEnhancements);
+window.addEventListener("resize", () => {
   clearTimeout(window._resizeTimer);
   window._resizeTimer = setTimeout(initMobileEnhancements, 200);
 });
@@ -437,12 +447,80 @@ window.addEventListener('resize', () => {
 // =====================================================
 
 const projectData = {
+  varsitytrade: {
+    icon: "🛡",
+    title: "VarsityTrade",
+    status: "In Progress",
+    statusClass: "in-progress",
+    tagline: "Built for Students, by Students",
+    description: [
+      "VarsityTrade is a full-stack marketplace web application built specifically for South African university students. It enables students to buy, sell and trade items safely withing their own campus community.",
+      "Every listing on the platform is locked to the seller's registered university, meaning buyers can only ever see items from students at their own institution.",
+    ],
+    features: [
+      "Campus-Locked Marketplace->Every listing is locked to the seller's university-buyers only see listings from their own campus",
+      "Dual-role user system->All users register as Buyer. Seller profile activated on demand-one account, two roles",
+      "JWT Authentication->Stateless API auth with access tokens(60 min) and refresh token rotation (7 days)",
+      "Listing management-> Full CRUD-create, edit, soft delete, view count tracking, expiry, featured flag",
+      "Category Hierarchy-> Self-referencing categories with subcategories(e.g. Electronics-> Laptops & Computers",
+      "Structured Trade Offers-> Cash, trade, or combined offers with OfferItems for itemised trades",
+      "In-App Messaging-> Conversation threads per listing between buyer and seller with read receipts",
+      "Review System-> Reviews gated by completed transaction-no transaction, no review. Prevents fake reviews",
+      "Admin Panel-> User management, listing moderation, reports queue, platform stats, hero banner manager",
+      "Hero Banner Management-> Admin controls home page auto-swiping banner-featured-listings, reviews and news slides",
+      "Software Delete Strategy-> Users, listings, reviews, and conversations are never hard deleted-DeletedAt preserved for audits",
+      "ASP .NET MVC Frontend-> Server-rendered Razor pages built from 31 high-fidelity wireframes",
+
+    ],
+    tech: [
+      "C#",
+      "ASP.NET Core",
+      "EF Core",
+      "RestApis",
+      "SQL Server",
+      "JWT Auth",
+      "OpenApi",
+    ],
+    github: "https://github.com/thabocoolT/VarsityTrade",
+    demo: null,
+    docs: {
+      architecture:[
+        "Varsity Trade is built on a clean layered architecture- a pattern widely used in professional .NET applications. The solution is split into four separate projects, each with a single responsibilty.",
+        "Dependencies floe strictly inward: nothing in Core knows about Infrastructure or API, and nothing in infrastructure knows about the API. This separation makes the codebase testable, maintanble, and easy to scare.",
+      ],
+      setup: [
+        "Full setup instructions will be published here once the project reaches Phase 7 — Deployment. The backend API, frontend, and mobile app will each have their own setup steps.",
+        
+      ],
+      usage:[
+        "On launch the API starts and the startup seeder automatically checks and populates all lookup tables — 21 universities, 33 categories, 4 item conditions, 6 listing statuses, and 5 system settings — if they are not already present. No manual database setup is required beyond running the migration.",
+        "From Swagger or any API client, a new student registers by providing their name, email, password, university, and location. The platform issues a JWT access token valid for 60 minutes and a refresh token valid for 7 days. All subsequent requests use the access token in the Authorization header.",
+        "Once registered, a student browses listings locked to their university — they cannot see listings from any other campus. When they are ready to sell, they activate a seller profile in one request, giving their shop a name and setting their pickup preferences. From that point they can create listings, receive offers, message buyers, and manage their shop — all without leaving their campus marketplace.",
+      ],
+        challenges:
+        "Once registered, a student browses listings locked to their university — they cannot see listings from any other campus. When they are ready to sell, they activate a seller profile in one request, giving their shop a name and setting their pickup preferences. From that point they can create listings, receive offers, message buyers, and manage their shop — all without leaving their campus marketplace.",
+      future: [
+        "Complete the ASP.NET MVC Razor frontend built from the 31 existing high-fidelity wireframes",
+        "Add real-time messaging using SignalR so conversation threads update live without page refreshes",
+        "Build the .NET MAUI mobile app for iOS and Android, sharing the same backend API",
+        "Implement student verification by cross-referencing student numbers against university records",
+        "Add image upload support using Azure Blob Storage for listing and profile photos",
+        "Introduce push notifications for new messages, offer updates, and price drops",
+        "Deploy to Azure with a full CI/CD pipeline using GitHub Actions",
+        "Add full-text search across listing titles and descriptions using SQL Server Full-Text Search",
+        "Implement listing expiry automation as a background job using a hosted service",
+        "Build out the admin analytics dashboard with exportable reports across all universities",
+      ],
+    },
+  },
+
   securevision: {
     icon: "🛡",
     title: "SecureVision",
     status: "In Progress",
     statusClass: "in-progress",
-    tagline: "Intelligent facial recognition security system for automated authentication and threat detection.",
+    tagline:
+      "Intelligent facial recognition security system for automated authentication and threat detection.",
     description:
       "SecureVision is a real-time facial recognition security system built with computer vision and machine learning. It identifies authorized users from a live camera feed, flags unrecognized faces, and can trigger automated protective actions, aiming to give small setups (home offices, labs, server rooms) enterprise-style access monitoring without expensive hardware.",
     features: [
@@ -452,7 +530,14 @@ const projectData = {
       "Configurable alert system for unrecognized faces",
       "Lightweight enough to run continuously on a standard laptop or mini PC",
     ],
-    tech: ["Python", "OpenCV", "AI & ML", "Computer Vision", "face_recognition", "NumPy"],
+    tech: [
+      "Python",
+      "OpenCV",
+      "AI & ML",
+      "Computer Vision",
+      "face_recognition",
+      "NumPy",
+    ],
     github: "https://github.com/thabocoolT/SecureVision",
     demo: null,
     docs: {
@@ -483,7 +568,8 @@ const projectData = {
     title: "Cisco Network Project",
     status: "Completed",
     statusClass: "completed",
-    tagline: "Secure enterprise network infrastructure designed and simulated in Cisco Packet Tracer.",
+    tagline:
+      "Secure enterprise network infrastructure designed and simulated in Cisco Packet Tracer.",
     description:
       "This project models a realistic small-to-medium enterprise network: multiple departments, VLAN segmentation, inter-VLAN routing, and basic security hardening, all designed and tested entirely in Cisco Packet Tracer. The goal was to apply systems analysis and networking theory to a network that could plausibly run a real office, rather than a simplified textbook topology.",
     features: [
@@ -525,7 +611,8 @@ const projectData = {
     title: "SafeRide Transport DB",
     status: "Completed",
     statusClass: "completed",
-    tagline: "Relational database system for SafeRide Transport Services built with Oracle SQL Developer.",
+    tagline:
+      "Relational database system for SafeRide Transport Services built with Oracle SQL Developer.",
     description:
       "SafeRide Transport DB is a complete relational database designed to support the day-to-day operations of a transport service: managing drivers, vehicles, customers, bookings, and trip records. The project covers the full database lifecycle, from requirements analysis and ER modelling through to normalized schema design, implementation, and query development in Oracle SQL Developer.",
     features: [
@@ -567,7 +654,8 @@ const projectData = {
     title: "Windows AI Assistant",
     status: "In Progress",
     statusClass: "in-progress",
-    tagline: "AI-powered desktop voice assistant for task automation and productivity.",
+    tagline:
+      "AI-powered desktop voice assistant for task automation and productivity.",
     description:
       "Windows AI Assistant is a voice-activated desktop assistant that listens for spoken commands and uses AI to interpret intent and carry out tasks: opening applications, searching the web, summarizing text, and automating repetitive actions. It's built to feel like a lightweight, personal alternative to built-in assistants, with room to plug in custom skills.",
     features: [
@@ -577,7 +665,14 @@ const projectData = {
       "Text summarization and quick Q&A on demand",
       "Modular skill system so new commands can be added without touching core logic",
     ],
-    tech: ["Python", "AI", "Automation", "OpenAI API", "Speech Recognition", "pyttsx3"],
+    tech: [
+      "Python",
+      "AI",
+      "Automation",
+      "OpenAI API",
+      "Speech Recognition",
+      "pyttsx3",
+    ],
     github: null,
     demo: null,
     docs: {
@@ -661,7 +756,8 @@ function populateModal(key) {
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     a.className = "modal-link-btn modal-link-secondary";
-    a.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo';
+    a.innerHTML =
+      '<i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo';
     modalLinks.appendChild(a);
   }
 
@@ -689,9 +785,15 @@ function openProjectModal(key) {
   populateModal(key);
 
   // Reset to overview tab every time the modal opens
-  document.querySelectorAll(".modal-tab").forEach((tab) => tab.classList.remove("active"));
-  document.querySelectorAll(".modal-panel").forEach((panel) => panel.classList.remove("active"));
-  document.querySelector('.modal-tab[data-tab="overview"]').classList.add("active");
+  document
+    .querySelectorAll(".modal-tab")
+    .forEach((tab) => tab.classList.remove("active"));
+  document
+    .querySelectorAll(".modal-panel")
+    .forEach((panel) => panel.classList.remove("active"));
+  document
+    .querySelector('.modal-tab[data-tab="overview"]')
+    .classList.add("active");
   document.getElementById("panelOverview").classList.add("active");
 
   projectModal.classList.add("show");
@@ -725,11 +827,18 @@ document.addEventListener("keydown", (e) => {
 
 document.querySelectorAll(".modal-tab").forEach((tab) => {
   tab.addEventListener("click", () => {
-    document.querySelectorAll(".modal-tab").forEach((t) => t.classList.remove("active"));
-    document.querySelectorAll(".modal-panel").forEach((p) => p.classList.remove("active"));
+    document
+      .querySelectorAll(".modal-tab")
+      .forEach((t) => t.classList.remove("active"));
+    document
+      .querySelectorAll(".modal-panel")
+      .forEach((p) => p.classList.remove("active"));
 
     tab.classList.add("active");
-    const panelId = tab.getAttribute("data-tab") === "overview" ? "panelOverview" : "panelDocs";
+    const panelId =
+      tab.getAttribute("data-tab") === "overview"
+        ? "panelOverview"
+        : "panelDocs";
     document.getElementById(panelId).classList.add("active");
   });
 });
