@@ -60,10 +60,19 @@
   }
 
   // Recalculate TOTAL on resize since content height can change
-  let total = document.body.scrollHeight - window.innerHeight;
-  window.addEventListener("resize", () => {
+  let resizeTimeout;
+
+window.addEventListener("resize", () => {
+
+  clearTimeout(resizeTimeout);
+
+  resizeTimeout = setTimeout(() => {
+
     total = document.body.scrollHeight - window.innerHeight;
-  });
+
+  }, 150);
+
+});
 
   window.addEventListener(
     "scroll",
@@ -84,32 +93,51 @@
 const sections = document.querySelectorAll("section");
 const navLinksAll = document.querySelectorAll(".nav-links a");
 
-window.addEventListener("scroll", () => {
-  let current = "";
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-  sections.forEach((section) => {
-    const senctionTop = section.offsetTop - 200;
-    const sectionHeight = section.clientHeight;
+      const id = entry.target.id;
 
-    if (pageYOffset >= senctionTop) {
-      current = section.getAttribute("id");
-    }
-  });
+      document
+        .querySelector(".nav-links a.active")
+        ?.classList.remove("active");
 
-  navLinksAll.forEach((link) => {
-    link.classList.remove("active");
+      document
+        .querySelector(`.nav-links a[href="#${id}"]`)
+        ?.classList.add("active");
+    });
+  },
+  {
+    threshold: 0.5,
+  }
+);
 
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
-    }
-  });
-});
+sections.forEach((section) => navObserver.observe(section));
 // NAVBAR SHADOW ON SCROLL
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar");
+const navbar = document.querySelector(".navbar");
 
+let ticking = false;
+
+function updateScrollEffects() {
   navbar.classList.toggle("scrolled", window.scrollY > 50);
-});
+
+  ticking = false;
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      requestAnimationFrame(updateScrollEffects);
+      ticking = true;
+    }
+  },
+  {
+    passive: true,
+  }
+);
 
 //======================BURGER MENU========================//
 const burger = document.getElementById("burger");
@@ -157,6 +185,7 @@ const words = [
 let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
+let typingTimer;
 
 function typeEffect() {
   const currentWord = words[wordIndex];
@@ -185,7 +214,10 @@ function typeEffect() {
     }
   }
 
-  setTimeout(typeEffect, deleting ? 50 : 100);
+  typingTimer = setTimeout(
+    typeEffect,
+    deleting ? 45 : 80
+);
 }
 
 typeEffect();
@@ -242,29 +274,20 @@ softSkillsBtn.addEventListener("click", () => {
 
 /*================ SCROLL REVEAL ================*/
 
-const reveals = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("active", entry.isIntersecting);
+    });
+  },
+  {
+    threshold: 0.15,
+  }
+);
 
-function revealElements() {
-  const windowHeight = window.innerHeight;
-
-  reveals.forEach((element) => {
-    const revealTop = element.getBoundingClientRect().top;
-
-    const revealPoint = 100;
-
-    if (revealTop < windowHeight - revealPoint) {
-      element.classList.add("active");
-    } else {
-      element.classList.remove("active");
-    }
-  });
-}
-
-/* Scroll Event */
-window.addEventListener("scroll", revealElements);
-
-/* Initial Load */
-revealElements();
+document.querySelectorAll(".reveal").forEach((element) => {
+  revealObserver.observe(element);
+});
 
 const contactForm = document.querySelector(".contact-form");
 const formStatus = document.querySelector(".form-status");
@@ -286,7 +309,7 @@ contactForm.addEventListener("submit", async (e) => {
     if (response.ok) {
       formStatus.textContent = "✅ Message sent successfully!";
 
-      formStatus.style.color = "#16a34a";
+      formStatus.className = "form-status success";
 
       contactForm.reset();
     } else {
@@ -313,10 +336,7 @@ function updateThemeIcon() {
   }
 }
 
-// Load saved theme
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-}
+
 
 // Set correct icon on page load
 updateThemeIcon();
@@ -335,19 +355,14 @@ themeBtn.addEventListener("click", () => {
 });
 
 // load saved theme
-window.addEventListener("load", () => {
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-  }
-});
-
 const savedTheme = localStorage.getItem("theme");
 
-if (savedTheme) {
-  document.body.classList.toggle("dark-mode", savedTheme === "dark");
-}
+document.body.classList.toggle(
+    "dark-mode",
+    savedTheme === "dark"
+);
+
+updateThemeIcon();
 
 // =====================================================
 // MOBILE: Scroll-dot indicators + swipe hints
@@ -388,6 +403,9 @@ function injectScrollDots(containerSelector, rowSelector, dotClass) {
   container.querySelector(rowSelector.split(" ").pop())
     ? container.appendChild(wrap)
     : container.appendChild(wrap);
+    if (row.dataset.initialized) return;
+
+row.dataset.initialized = "true";
 
   row.addEventListener(
     "scroll",
