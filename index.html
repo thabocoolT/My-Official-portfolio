@@ -7,7 +7,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaquery.css" />
-    
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
@@ -45,6 +45,7 @@
         </div>
         <nav class="nav-links" id="navLinks">
           <a href="#home">Home</a>
+          <a href="#featured">Featured</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
@@ -88,7 +89,10 @@
             solutions.
           </p>
           <div class="hero-buttons">
-            <a href="assets/TP_Motau_CV.pdf" download="Thabo Motau Resume" class="btn primary"
+            <a
+              href="assets/TP_Motau_CV.pdf"
+              download="Thabo Motau Resume"
+              class="btn primary"
               >⬇ Download CV</a
             >
             <a href="#contact" class="btn outline">✉ Contact Me</a>
@@ -97,7 +101,7 @@
             <a
               href="https://github.com/thabocoolT"
               target="_blank"
-              rel="noopener noreferencer"
+              rel="noopener noreferrer"
               aria-label="Visit my GitHub profile"
             >
               <img src="assets/github.png" alt="GitHub" />
@@ -105,7 +109,7 @@
             <a
               href="mailto:thaboprince252@gmail.com"
               target="_blank"
-              rel="noopener noreferencer"
+              rel="noopener noreferrer"
               aria-label="Send me an email"
             >
               <img src="assets/email.png" alt="Email" />
@@ -113,13 +117,38 @@
             <a
               href="https://linkedin.com/in/thaboprince25"
               target="_blank"
-              rel="noopener noreferencer"
+              rel="noopener noreferrer"
               aria-label="Visit my LinkedIn profile"
             >
               <img src="assets/linkedin.png" alt="LinkedIn" />
             </a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS SECTION ================= -->
+    <section id="featured" class="featured">
+      <div class="section-container featured-container">
+        <span class="featured-small-title">FEATURED</span>
+        <h2 class="featured-title">Latest Build</h2>
+        <div class="featured-slider-wrapper">
+          <button
+            class="featured-arrow left-arrow"
+            aria-label="Previous project"
+          >
+            ❮
+          </button>
+          <div class="featured-viewport" id="featuredViewport">
+            <div class="featured-track" id="featuredTrack">
+              <!-- Rendered from projectData in script.js, newest `date` first -->
+            </div>
+          </div>
+          <button class="featured-arrow right-arrow" aria-label="Next project">
+            ❯
+          </button>
+        </div>
+        <div class="featured-dots" id="featuredDots"></div>
       </div>
     </section>
 
@@ -211,7 +240,12 @@
         <span class="skills-small-title">SKILLS</span>
         <h2 class="skills-title">My Technical Toolkit</h2>
         <div class="skills-slider-wrapper">
-          <button class="skills-arrow left-arrow">❮</button>
+          <button
+            class="skills-arrow left-arrow"
+            aria-label="Scroll skills left"
+          >
+            ❮
+          </button>
           <div class="skills-slider-viewport">
             <div class="skills-slider" id="skillsSlider">
               <!-- ORIGINAL SET -->
@@ -239,21 +273,37 @@
                   <li><i class="fa-brands fa-html5 html-icon"></i> HTML5</li>
                   <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS3</li>
                   <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
-                  <li><i class="fa-brands fa-react react-icon"> </i>React</li>
-                  <li><i class="fa-brands fa-bootstrap bootstrap-icon"></i> Bootstrap</li>
+                  <li><i class="fa-brands fa-react react-icon"></i> React</li>
+                  <li>
+                    <i class="fa-brands fa-bootstrap bootstrap-icon"></i>
+                    Bootstrap
+                  </li>
                 </ul>
               </div>
-               <div class="skill-card">
+              <div class="skill-card">
                 <div class="card-title">
                   <i class="fa-solid fa-server"></i> Backend Development
                   <span class="card-dot"></span>
                 </div>
                 <ul>
-                  <li><i class="fa-solid fa-server" style="color:purple"></i>ASP.NET Core Web API</li>
-                  <li><i class="fa-solid fa-layer-group" style="color:cyan"></i> Entity Framework Core</li>
-                  <li><i class="fa-solid fa-key" style="color:goldenrod"></i> JWT Authentication</li>
-                  <li><i class="fa-solid fa-user-shield" style="color:grey"> </i>ASP.NET Identity</li>
-                  <li><i class="fa-solid fa-plug" style="color:whitesmoke"></i> RESTful APIs</li>
+                  <li>
+                    <i class="fa-solid fa-server icon-purple"></i> ASP.NET Core
+                    Web API
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-layer-group icon-cyan"></i> Entity
+                    Framework Core
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-key icon-gold"></i> JWT Authentication
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-user-shield icon-grey"></i> ASP.NET
+                    Identity
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-plug icon-white"></i> RESTful APIs
+                  </li>
                 </ul>
               </div>
               <div class="skill-card">
@@ -269,31 +319,38 @@
                     <i class="fa-solid fa-database sql-icon"></i> SQL Server
                   </li>
                   <li><i class="devicon-mongodb-plain colored"></i> MongoDB</li>
-                  <li><i class="fa-solid fa-database"></i> SQL Server Management System</li>
+                  <li>
+                    <i class="fa-solid fa-database"></i> SQL Server Management
+                    System
+                  </li>
                 </ul>
               </div>
               <div class="skill-card">
                 <div class="card-title">
-                  <i class="fa-solid fa-diagram-project"></i> Software Engineering
+                  <i class="fa-solid fa-diagram-project"></i> Software
+                  Engineering
                   <span class="card-dot"></span>
                 </div>
                 <ul>
-                  <li><i class="fa-solid fa-cube" style="color:brown"></i> UML</li>
+                  <li><i class="fa-solid fa-cube icon-brown"></i> UML</li>
                   <li>
-                    <i class="fa-solid fa-users-viewfinder" style="color:burlywood"></i> Use Case
-                    Diagrams
+                    <i class="fa-solid fa-users-viewfinder icon-burlywood"></i>
+                    Use Case Diagrams
                   </li>
                   <li>
                     <i class="fa-solid fa-arrows-to-circle"></i> Data Flow
                     Diagrams
                   </li>
                   <li><i class="fa-solid fa-sitemap"></i> System Design</li>
-                  <li><i class="fa-solid fa-code-branch"></i> Clean Architecture</li>
+                  <li>
+                    <i class="fa-solid fa-code-branch"></i> Clean Architecture
+                  </li>
                 </ul>
               </div>
               <div class="skill-card">
                 <div class="card-title">
-                  <i class="fa-solid fa-network-wired"></i> Networking and Security
+                  <i class="fa-solid fa-network-wired"></i> Networking and
+                  Security
                   <span class="card-dot"></span>
                 </div>
                 <ul>
@@ -308,7 +365,10 @@
                   <li>
                     <i class="fa-solid fa-wifi wifi-icon"></i> Computer Networks
                   </li>
-                  <li><i class="fa-solid fa-lock" STYLE="color:rgba(126, 79, 9, 0.908)"></i> Information Security</li>
+                  <li>
+                    <i class="fa-solid fa-lock icon-rust"></i> Information
+                    Security
+                  </li>
                 </ul>
               </div>
               <div class="skill-card">
@@ -322,7 +382,10 @@
                     GitHub
                   </li>
                   <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
-                  <li><i class="devicon-visualstudio-plain colored"></i> Visual Studio</li>
+                  <li>
+                    <i class="devicon-visualstudio-plain colored"></i> Visual
+                    Studio
+                  </li>
                   <li><i class="fa-solid fa-book"></i> Swagger/OpenApi</li>
                   <li>
                     <i class="fa-solid fa-gears agile-icon"></i> Agile Methods
@@ -331,25 +394,29 @@
                     <i class="fa-solid fa-network-wired cisco-icon"></i> Cisco
                     Packet Tracer
                   </li>
-                  
                 </ul>
-                
               </div>
               <div class="skill-card">
                 <div class="card-title">
-                  <i class="fa-solid fa-server"></i> AI & Machine Learning
+                  <i class="fa-solid fa-server"></i> AI &amp; Machine Learning
                   <span class="card-dot"></span>
                 </div>
                 <ul>
-                  <li><i class="fa-solid fa-robot" style="color:navy"></i>AI Applications</li>
-                  <li><i class="fa-solid fa-computer" style="color:darkgray"></i> Machine Learning Basics</li>
-                  <li><i class="fa-solid fa-eye" style="color:skyblue"></i> Computer Vision</li>
-                  <li><i class="devicon-opencv-plain colored"> </i>OpenCV</li>
-                  
+                  <li>
+                    <i class="fa-solid fa-robot icon-navy"></i> AI Applications
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-computer icon-darkgray"></i> Machine
+                    Learning Basics
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-eye icon-skyblue"></i> Computer Vision
+                  </li>
+                  <li><i class="devicon-opencv-plain colored"></i> OpenCV</li>
                 </ul>
-              </div
+              </div>
 
-              <!-- DUPLICATE SET -->
+              <!-- DUPLICATE SET (aria-hidden, purely visual — powers the seamless infinite-scroll loop) -->
               <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
                   <i class="fa-solid fa-terminal"></i> Programming Languages
@@ -365,7 +432,7 @@
                   <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
                 </ul>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
                   <i class="fa-solid fa-globe"></i> Frontend Development
                   <span class="card-dot"></span>
@@ -374,24 +441,40 @@
                   <li><i class="fa-brands fa-html5 html-icon"></i> HTML5</li>
                   <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS3</li>
                   <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
-                  <li><i class="fa-brands fa-react react-icon"> </i>React</li>
-                  <li><i class="fa-brands fa-bootstrap bootstrap-icon"></i> Bootstrap</li>
+                  <li><i class="fa-brands fa-react react-icon"></i> React</li>
+                  <li>
+                    <i class="fa-brands fa-bootstrap bootstrap-icon"></i>
+                    Bootstrap
+                  </li>
                 </ul>
               </div>
-               <div class="skill-card">
+              <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
                   <i class="fa-solid fa-server"></i> Backend Development
                   <span class="card-dot"></span>
                 </div>
                 <ul>
-                  <li><i class="fa-solid fa-server" style="color:purple"></i>ASP.NET Core Web API</li>
-                  <li><i class="fa-solid fa-layer-group" style="color:cyan"></i> Entity Framework Core</li>
-                  <li><i class="fa-solid fa-key" style="color:goldenrod"></i> JWT Authentication</li>
-                  <li><i class="fa-solid fa-user-shield" style="color:grey"> </i>ASP.NET Identity</li>
-                  <li><i class="fa-solid fa-plug" style="color:whitesmoke"></i> RESTful APIs</li>
+                  <li>
+                    <i class="fa-solid fa-server icon-purple"></i> ASP.NET Core
+                    Web API
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-layer-group icon-cyan"></i> Entity
+                    Framework Core
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-key icon-gold"></i> JWT Authentication
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-user-shield icon-grey"></i> ASP.NET
+                    Identity
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-plug icon-white"></i> RESTful APIs
+                  </li>
                 </ul>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
                   <i class="fa-solid fa-database"></i> Databases
                   <span class="card-dot"></span>
@@ -404,31 +487,38 @@
                     <i class="fa-solid fa-database sql-icon"></i> SQL Server
                   </li>
                   <li><i class="devicon-mongodb-plain colored"></i> MongoDB</li>
-                  <li><i class="fa-solid fa-database"></i> SQL Server Management System</li>
+                  <li>
+                    <i class="fa-solid fa-database"></i> SQL Server Management
+                    System
+                  </li>
                 </ul>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
-                  <i class="fa-solid fa-diagram-project"></i> Software Engineering
+                  <i class="fa-solid fa-diagram-project"></i> Software
+                  Engineering
                   <span class="card-dot"></span>
                 </div>
                 <ul>
-                  <li><i class="fa-solid fa-cube"></i> UML</li>
+                  <li><i class="fa-solid fa-cube icon-brown"></i> UML</li>
                   <li>
-                    <i class="fa-solid fa-users-viewfinder"></i> Use Case
-                    Diagrams
+                    <i class="fa-solid fa-users-viewfinder icon-burlywood"></i>
+                    Use Case Diagrams
                   </li>
                   <li>
                     <i class="fa-solid fa-arrows-to-circle"></i> Data Flow
                     Diagrams
                   </li>
                   <li><i class="fa-solid fa-sitemap"></i> System Design</li>
-                  <li><i class="fa-solid fa-code-branch"></i> Clean Architecture</li>
+                  <li>
+                    <i class="fa-solid fa-code-branch"></i> Clean Architecture
+                  </li>
                 </ul>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
-                  <i class="fa-solid fa-network-wired"></i> Networking and Security
+                  <i class="fa-solid fa-network-wired"></i> Networking and
+                  Security
                   <span class="card-dot"></span>
                 </div>
                 <ul>
@@ -443,10 +533,13 @@
                   <li>
                     <i class="fa-solid fa-wifi wifi-icon"></i> Computer Networks
                   </li>
-                  <li><i class="fa-solid fa-lock"></i> Information Security</li>
+                  <li>
+                    <i class="fa-solid fa-lock icon-rust"></i> Information
+                    Security
+                  </li>
                 </ul>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
                   <i class="fa-solid fa-gears"></i> Developer Tools
                   <span class="card-dot"></span>
@@ -457,7 +550,10 @@
                     GitHub
                   </li>
                   <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
-                  <li><i class="devicon-visualstudio-plain colored"></i> Visual Studio</li>
+                  <li>
+                    <i class="devicon-visualstudio-plain colored"></i> Visual
+                    Studio
+                  </li>
                   <li><i class="fa-solid fa-book"></i> Swagger/OpenApi</li>
                   <li>
                     <i class="fa-solid fa-gears agile-icon"></i> Agile Methods
@@ -466,43 +562,76 @@
                     <i class="fa-solid fa-network-wired cisco-icon"></i> Cisco
                     Packet Tracer
                   </li>
-                  
                 </ul>
-                
               </div>
-              <div class="skill-card">
+              <div class="skill-card" aria-hidden="true">
                 <div class="card-title">
-                  <i class="fa-solid fa-server"></i> AI & Machine Learning
+                  <i class="fa-solid fa-server"></i> AI &amp; Machine Learning
                   <span class="card-dot"></span>
                 </div>
                 <ul>
-                  <li><i class="fa-solid fa-robot"></i>AI Applications</li>
-                  <li><i class="fa-solid fa-computer"></i> Machine Learning Basics</li>
-                  <li><i class="fa-solid fa-eye"></i> Computer Vision</li>
-                  <li><i class="devicon-opencv-plain colored"> </i>OpenCV</li>
-
-                  
+                  <li>
+                    <i class="fa-solid fa-robot icon-navy"></i> AI Applications
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-computer icon-darkgray"></i> Machine
+                    Learning Basics
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-eye icon-skyblue"></i> Computer Vision
+                  </li>
+                  <li><i class="devicon-opencv-plain colored"></i> OpenCV</li>
                 </ul>
-              </div
-            
+              </div>
             </div>
           </div>
-          </div>
-          <button class="skills-arrow right-arrow">❯</button>
+          <button
+            class="skills-arrow right-arrow"
+            aria-label="Scroll skills right"
+          >
+            ❯
+          </button>
         </div>
         <div class="soft-skills-btn-container">
           <button class="soft-skills-btn">View Professional Skills</button>
         </div>
         <div class="soft-skills">
-          <div class="soft-skill-card"><i class="fa-solid fa-people-group" style="color:blue"> </i> Teamwork</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-comments " style="color:#10b981"> </i> Communication</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-lightbulb " style="color:#f59e0b"> </i> Problem Solving</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-clock" style="color:grey"> </i>Time Management</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-rocket" style="color:tomato"> </i> Adaptability</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-medal" style="color:gold"> </i> Leadership</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-magnifying-glass" style="color:#06b6b6d4"> </i> Attention to Detail</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-handshake" style="color:palegoldenrod"> </i> Cross-functional Collaboration</div>
-          <div class="soft-skill-card"><i class="fa-solid fa-file-lines" style="color:lightgrey"> </i> Technical Documentation</div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-people-group" style="color: blue"> </i>
+            Teamwork
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-comments" style="color: #10b981"> </i>
+            Communication
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-lightbulb" style="color: #f59e0b"> </i>
+            Problem Solving
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-clock" style="color: grey"> </i>Time
+            Management
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-rocket" style="color: tomato"> </i>
+            Adaptability
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-medal" style="color: gold"> </i> Leadership
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-magnifying-glass" style="color: #06b6b6d4">
+            </i>
+            Attention to Detail
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-handshake" style="color: palegoldenrod"> </i>
+            Cross-functional Collaboration
+          </div>
+          <div class="soft-skill-card">
+            <i class="fa-solid fa-file-lines" style="color: lightgrey"> </i>
+            Technical Documentation
+          </div>
         </div>
       </div>
     </section>
@@ -513,203 +642,7 @@
         <span class="projects-small-title">PROJECTS</span>
         <h2 class="projects-title">Things I've Built</h2>
         <div class="projects-grid" id="projectsGrid">
-          <!---Project 0-->
-           <div class="project-card reveal">
-            <span class="project-status in-progress">In Progress</span>
-            <div class="project-image">
-              <img
-                src="assets/VT_Logo.png"
-                alt="Varsity Trade Logo"
-              />
-            </div>
-            <div class="project-content">
-              <h3>🎓 VaristyTrade</h3>
-              <p>
-                A full-stack, campus-locked marketplace letting South
-                    African students buy, sell and trade safely within their
-                    own university — built end-to-end on ASP.NET Core with a
-                    22-table normalised database and JWT auth.
-              </p>
-              <div class="project-tech">
-                <span>C#</span><span>ASP.NET Core</span><span>EF Core</span
-                ><span>RESTApis</span><span>SQL Server</span
-                ><span>JWT Authentication</span>
-                <span>OpenAPI</span>
-              </div>
-              <div class="project-buttons">
-                <a
-                  href="https://github.com/thabocoolT/VarsityTrade.git"
-                  class="project-btn primary-btn view-project-btn"
-                  data-project="varsitytrade"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View project on GitHub"
-                  >View Project</a
-                >
-                <a
-                  href="https://github.com/thabocoolT/VarsityTrade.git"
-                  class="project-btn secondary-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View project on GitHub"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-          
-          <!-- PROJECT 4 -->
-          <div class="project-card reveal">
-            <span class="project-status completed">Completed</span>
-            <div class="project-image">
-              <img
-                src="assets/project-4.png"
-                alt="Windows AI Voice Assistant"
-              />
-            </div>
-            <div class="project-content">
-              <h3>🤖 SashAI Windows Assistant</h3>
-              <p>
-                AI-powered desktop voice assistant designed to automate tasks,
-                improve productivity, and integrate intelligent system
-                interactions.
-              </p>
-              <div class="project-tech">
-                <span>Python</span><span>AI/ML</span><span>Automation</span
-                ><span>Groq API</span><span>Llam 3</span
-                ><span>SpeechRecognition</span>
-                
-              </div>
-              <div class="project-buttons">
-                <a
-                  href="https://github.com/thabocoolT/Windows-AI-Assistant.git"
-                  class="project-btn primary-btn view-project-btn"
-                  data-project="aiassistant"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View project on GitHub"
-                  >View Project</a
-                >
-                <a
-                  href="https://github.com/thabocoolT/Windows-AI-Assistant.git"
-                  class="project-btn secondary-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View project on GitHub"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- PROJECT 1 -->
-          <div class="project-card reveal">
-            <span class="project-status in-progress">In Progress</span>
-            <div class="project-image">
-              <img
-                src="assets/project-1.png"
-                alt="Live facial recognition system"
-              />
-            </div>
-            <div class="project-content">
-              <h3>🛡 SecureVision</h3>
-              <p>
-                Intelligent facial recognition security system using computer
-                vision and machine learning for secure authentication and
-                automatic system protection.
-              </p>
-              <div class="project-tech">
-                <span>Python</span><span>OpenCv</span><span>AI &amp; ML</span
-                ><span>Computer Vision</span>
-              </div>
-              <div class="project-buttons">
-                <a
-                  href="#"
-                  class="project-btn primary-btn view-project-btn"
-                  data-project="securevision"
-                  >View Project</a
-                >
-                <a
-                  href="https://github.com/thabocoolT/SecureVision"
-                  class="project-btn secondary-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View project on GitHub"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- PROJECT 2 -->
-          <div class="project-card reveal">
-            <span class="project-status completed">Completed</span>
-            <div class="project-image">
-              <img
-                src="assets/project-2.png"
-                alt="Cisco Enterprise Simulation Network Project"
-              />
-            </div>
-            <div class="project-content">
-              <h3>🌐 Cisco Network Project</h3>
-              <p>
-                Designed and simulated a secure enterprise network
-                infrastructure using Cisco Packet Tracer with VLANs, routing,
-                and security implementation.
-              </p>
-              <div class="project-tech">
-                <span>Cisco</span><span>Networking</span><span>Security</span
-                ><span>Packet Tracer</span>
-              </div>
-              <div class="project-buttons">
-                <a
-                  href="#"
-                  class="project-btn primary-btn view-project-btn"
-                  data-project="cisco"
-                  >View Project</a
-                >
-                <a href="#" class="project-btn secondary-btn">GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PROJECT 3 -->
-          <div class="project-card reveal">
-            <span class="project-status completed">Completed</span>
-            <div class="project-image">
-              <img
-                src="assets/project-3.png"
-                alt="SafeRide Transport Database"
-              />
-            </div>
-            <div class="project-content">
-              <h3>🗄 SafeRide Transport DB</h3>
-              <p>
-                Designed and implemented a relational database system for
-                SafeRide Transport Services using Oracle SQL Developer and
-                advanced SQL concepts.
-              </p>
-              <div class="project-tech">
-                <span>Oracle SQL</span><span>ERD</span><span>DB Design</span
-                ><span>SQL</span>
-              </div>
-              <div class="project-buttons">
-                <a
-                  href="#"
-                  class="project-btn primary-btn view-project-btn"
-                  data-project="saferide"
-                  >View Project</a
-                >
-                <a
-                  href="https://github.com/thabocoolT/SafeRide-Transport-DBMS"
-                  class="project-btn secondary-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View project on GitHub"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
+          <!-- Rendered from projectData in script.js -->
         </div>
         <div class="more-projects">
           <a
@@ -862,6 +795,7 @@
         <div class="footer-logo">TP Motau</div>
         <div class="footer-links">
           <a href="#home">Home</a>
+          <a href="#featured">Featured</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
@@ -906,6 +840,7 @@
 
         <div class="modal-tabs">
           <button class="modal-tab active" data-tab="overview">Overview</button>
+          <button class="modal-tab" data-tab="demo">Demo</button>
           <button class="modal-tab" data-tab="docs">Documentation</button>
         </div>
 
@@ -919,6 +854,10 @@
           <div class="modal-tech" id="modalTech"></div>
 
           <div class="modal-links" id="modalLinks"></div>
+        </div>
+
+        <div class="modal-panel" id="panelDemo">
+          <div id="modalVideoWrap"></div>
         </div>
 
         <div class="modal-panel" id="panelDocs">
