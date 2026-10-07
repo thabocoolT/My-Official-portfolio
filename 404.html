@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#050816" />
+    <title>Page not found | Thabo Prince Motau</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <style>
+      :root {
+        --bg: #050816;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #00eaff;
+        --primary: #60a5fa;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        font-family:
+          "Poppins",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            ellipse 120% 60% at 50% -10%,
+            rgba(0, 234, 255, 0.16),
+            transparent 65%
+          ),
+          var(--bg);
+      }
+      main {
+        width: 100%;
+        max-width: 520px;
+        padding: 40px 32px;
+        text-align: center;
+        border-radius: 20px;
+        background: rgba(10, 18, 40, 0.85);
+        border: 1px solid rgba(0, 234, 255, 0.25);
+        box-shadow: 0 0 40px rgba(0, 234, 255, 0.12);
+      }
+      .code {
+        font-size: clamp(64px, 18vw, 96px);
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(90deg, #60a5fa, #2563eb, #7c3aed, #06b6d4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h1 {
+        margin: 12px 0 8px;
+        font-size: 22px;
+      }
+      p {
+        margin-bottom: 24px;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 15px;
+      }
+      a.btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 30px;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        background: linear-gradient(to right, #2563eb, #3b82f6);
+        box-shadow: 0 10px 22px rgba(37, 99, 235, 0.3);
+      }
+      a.btn:hover {
+        filter: brightness(1.1);
+      }
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="code" aria-hidden="true">404</div>
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist or has moved.</p>
+      <a class="btn" href="/">Back to homepage</a>
+    </main>
+  </body>
+</html>
