@@ -3,11 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thabo Prince Motau | Software Developer Portfolio</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Thabo Prince Motau | Aspiring Software Developer | C#/.NET</title>
+    <meta
+      name="description"
+      content="Final-year BSc IT student building practical software with C#, ASP.NET Core, SQL Server, REST APIs, Entity Framework Core and Python. View projects, experience and CV."
+    />
+    <meta name="author" content="Thabo Prince Motau" />
+    <meta name="theme-color" content="#050816" />
+    <link rel="canonical" href="https://thabo-motau-portfolio.netlify.app/" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Thabo Prince Motau" />
+    <meta
+      property="og:title"
+      content="Thabo Prince Motau | Aspiring Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="Final-year BSc IT student building practical software with C#, ASP.NET Core, SQL Server and REST APIs. Flagship project: Varsity Trade."
+    />
+    <meta
+      property="og:url"
+      content="https://thabo-motau-portfolio.netlify.app/"
+    />
+    <meta
+      property="og:image"
+      content="https://thabo-motau-portfolio.netlify.app/assets/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Single favicon declaration -->
+    <link rel="icon" href="favicon.ico" sizes="any" />
+
+    <!-- Fonts (loaded once here instead of @import in both CSS files) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap"
+    />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaquery.css" />
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
@@ -16,16 +56,26 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <meta
-      name="description"
-      content="Portfolio of Thabo Prince Motau - Software Developer, Systems Analyst, and IT Student"
-    />
-    <meta name="author" content="Thabo Prince Motau" />
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Thabo Prince Motau",
+        "url": "https://thabo-motau-portfolio.netlify.app/",
+        "jobTitle": "Aspiring Software Developer",
+        "sameAs": [
+          "https://github.com/thabocoolT",
+          "https://linkedin.com/in/thaboprince25"
+        ]
+      }
+    </script>
   </head>
 
   <body class="dark-mode">
-    <div class="global-background">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="global-background" aria-hidden="true">
       <div class="sky-layer"></div>
       <div class="stars-layer"></div>
       <div class="aurora-layer"></div>
@@ -39,25 +89,33 @@
     <!--===================NAV BAR============= -->
     <header class="navbar">
       <div class="nav-container">
-        <div class="logo">
-          <img src="assets/logo.png" alt="Logo" class="logo-image" />
-          <span class="">Thabo Prince</span> Motau
-        </div>
-        <nav class="nav-links" id="navLinks">
+        <a class="logo" href="#home" aria-label="Thabo Prince Motau — back to top">
+          <img src="assets/logo.png" alt="" class="logo-image" />
+          <span>Thabo Prince</span> Motau
+        </a>
+        <nav class="nav-links" id="navLinks" aria-label="Primary">
           <a href="#home">Home</a>
           <a href="#featured">Featured</a>
-          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
-        <div class="burger" id="burger">
+        <button
+          type="button"
+          class="burger"
+          id="burger"
+          aria-label="Open menu"
+          aria-controls="navLinks"
+          aria-expanded="false"
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
         <div class="theme-toggle">
-          <button id="themeBtn" aria-label="Toggle Theme">
+          <button id="themeBtn" type="button" aria-label="Toggle light/dark theme">
             <i class="fa-solid fa-moon"></i>
           </button>
         </div>
@@ -65,742 +123,605 @@
     </header>
     <!--===================NAV BAR end============= -->
 
-    <!-- ================= HERO SECTION ================= -->
-    <section id="home" class="hero">
-      <div class="hero-grid"></div>
-      <div class="section-container hero-container reveal">
-        <div class="hero-image reveal">
-          <div class="particles">
-            <span></span><span></span><span></span> <span></span><span></span
-            ><span></span>
+    <main id="main">
+      <!-- ================= HERO SECTION ================= -->
+      <section id="home" class="hero" aria-labelledby="heroHeading">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="section-container hero-container reveal">
+          <div class="hero-image reveal">
+            <div class="particles" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span
+              ><span></span>
+            </div>
+            <div class="circle" aria-hidden="true"></div>
+            <img
+              src="assets/hero.png"
+              class="img-default"
+              alt="Portrait of Thabo Motau"
+              decoding="async"
+              fetchpriority="high"
+            />
+            <img
+              src="assets/hero2.png"
+              class="img-hover"
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+            />
           </div>
-          <div class="circle"></div>
-          <img src="assets/hero.png" class="img-default" alt="Thabo Motau" />
-          <img src="assets/hero2.png" class="img-hover" alt="Thabo Motau" />
-        </div>
-        <div class="hero-content">
-          <p class="intro">Hi There, I'm</p>
-          <h1>Thabo <br />Prince Motau</h1>
-          <h3><span id="typing-text"></span></h3>
-          <p class="subtitle">
-            Final-year BSc IT student with a strong focus on software
-            development and systems analysis. I enjoy building practical
-            systems, working with data, and turning ideas into real-world
-            solutions.
-          </p>
-          <div class="hero-buttons">
-            <a
-              href="assets/TP_Motau_CV.pdf"
-              download="Thabo Motau Resume"
-              class="btn primary"
-              >⬇ Download CV</a
-            >
-            <a href="#contact" class="btn outline">✉ Contact Me</a>
-          </div>
-          <div class="social-icons">
-            <a
-              href="https://github.com/thabocoolT"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my GitHub profile"
-            >
-              <img src="assets/github.png" alt="GitHub" />
-            </a>
-            <a
-              href="mailto:thaboprince252@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Send me an email"
-            >
-              <img src="assets/email.png" alt="Email" />
-            </a>
-            <a
-              href="https://linkedin.com/in/thaboprince25"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my LinkedIn profile"
-            >
-              <img src="assets/linkedin.png" alt="LinkedIn" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FEATURED PROJECTS SECTION ================= -->
-    <section id="featured" class="featured">
-      <div class="section-container featured-container">
-        <span class="featured-small-title">FEATURED</span>
-        <h2 class="featured-title">Latest Build</h2>
-        <div class="featured-slider-wrapper">
-          <button
-            class="featured-arrow left-arrow"
-            aria-label="Previous project"
-          >
-            ❮
-          </button>
-          <div class="featured-viewport" id="featuredViewport">
-            <div class="featured-track" id="featuredTrack">
-              <!-- Rendered from projectData in script.js, newest `date` first -->
+          <div class="hero-content">
+            <p class="intro">Hi there, I'm</p>
+            <h1 id="heroHeading">Thabo <br />Prince Motau</h1>
+            <p class="hero-role">
+              Aspiring Software Developer | C#/.NET | Backend &amp; Full-Stack
+              Development
+            </p>
+            <p class="subtitle">
+              Final-year BSc IT student at North-West University building
+              practical software applications with C#, ASP.NET Core, SQL
+              Server, REST APIs, Entity Framework Core and Python.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn primary"
+                ><i class="fa-solid fa-code"></i> View Projects</a
+              >
+              <a
+                href="assets/TP_Motau_CV.pdf"
+                download="Thabo_Motau_CV.pdf"
+                class="btn primary"
+                ><i class="fa-solid fa-download"></i> Resume / CV</a
+              >
+              <a
+                href="https://github.com/thabocoolT"
+                class="btn outline"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              >
+              <a href="#contact" class="btn outline"
+                ><i class="fa-solid fa-envelope"></i> Contact</a
+              >
+            </div>
+            <div class="social-icons">
+              <a
+                href="https://github.com/thabocoolT"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit my GitHub profile"
+              >
+                <img src="assets/github.png" alt="" />
+              </a>
+              <a
+                href="mailto:thaboprince252@gmail.com"
+                aria-label="Send me an email"
+              >
+                <img src="assets/email.png" alt="" />
+              </a>
+              <a
+                href="https://linkedin.com/in/thaboprince25"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit my LinkedIn profile"
+              >
+                <img src="assets/linkedin.png" alt="" />
+              </a>
             </div>
           </div>
-          <button class="featured-arrow right-arrow" aria-label="Next project">
-            ❯
-          </button>
         </div>
-        <div class="featured-dots" id="featuredDots"></div>
-      </div>
-    </section>
+      </section>
 
-    <!--===================ABOUT SECTION================= -->
-    <section id="about" class="about">
-      <div class="section-container about-container reveal neon-frame">
-        <div class="section-title">
-          <i class="fas fa-user"></i>
-          <h2>About Me</h2>
+      <!-- ================= FEATURED (FLAGSHIP) PROJECT ================= -->
+      <section id="featured" class="featured" aria-labelledby="featuredHeading">
+        <div class="section-container featured-container">
+          <span class="featured-small-title">FEATURED</span>
+          <h2 class="featured-title" id="featuredHeading">Flagship Project</h2>
+          <!-- Rendered from projectData[FLAGSHIP_KEY] in script.js -->
+          <div id="featuredFlagship"></div>
         </div>
-        <div class="about-content reveal">
-          <div class="about-left">
-            <span class="about-subtitle"><h2>GET TO KNOW ME</h2></span>
-            <div class="about-text">
+      </section>
+
+      <!-- ================= EXPERIENCE SECTION ================= -->
+      <section id="experience" class="experience" aria-labelledby="experienceHeading">
+        <div class="section-container experience-container">
+          <span class="skills-small-title">EXPERIENCE</span>
+          <h2 class="skills-title" id="experienceHeading">Academic &amp; Industry Experience</h2>
+          <div class="experience-grid">
+            <article class="experience-card reveal">
+              <span class="exp-badge">Student Assistant · Academic Experience</span>
+              <h3 class="exp-role">Student Assistant — C++ / Structured Programming</h3>
+              <p class="exp-meta">
+                <span>North-West University</span>
+                <time>August 2025 – Present</time>
+              </p>
+              <ul class="exp-list">
+                <li>Tutor 200+ first-year IT students in C++ and structured programming</li>
+                <li>Debug students' C++ programs and explain core programming concepts</li>
+                <li>Support practical laboratory sessions</li>
+                <li>Work within a 13-person academic team</li>
+                <li>Support marking and assessment consistency</li>
+              </ul>
+              <div class="exp-tags">
+                <span>C++</span><span>Debugging</span><span>Teaching</span>
+              </div>
+            </article>
+
+            <article class="experience-card reveal">
+              <span class="exp-badge">Industry-Based Learning · Academic Experience</span>
+              <h3 class="exp-role">Industry-Based Learning — Systems Analysis &amp; Design / IT Support</h3>
+              <p class="exp-meta">
+                <span>Heidelberg Hospital</span>
+                <time>July 2024</time>
+              </p>
+              <ul class="exp-list">
+                <li>Desktop and end-user support</li>
+                <li>Worked with Microsoft 365, Citrix and RX Solutions</li>
+                <li>SQL Server-based support and software troubleshooting</li>
+                <li>Gathered an understanding of user and business requirements</li>
+                <li>Produced technical documentation</li>
+                <li>Exposure to enterprise healthcare information systems</li>
+              </ul>
+              <div class="exp-tags">
+                <span>Microsoft 365</span><span>Citrix</span><span>RX Solutions</span
+                ><span>SQL Server</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SKILLS SECTION ================= -->
+      <section id="skills" class="skills" aria-labelledby="skillsHeading">
+        <div class="section-container skills-container">
+          <span class="skills-small-title">SKILLS</span>
+          <h2 class="skills-title" id="skillsHeading">My Technical Toolkit</h2>
+
+          <div class="skills-grid" id="skillsGrid">
+            <div class="skill-card">
+              <h3 class="card-title">
+                <i class="fa-solid fa-terminal"></i> Backend &amp; Software Development
+                <span class="card-dot"></span>
+              </h3>
+              <ul>
+                <li><i class="fa-solid fa-code csharp-icon"></i> C#</li>
+                <li><i class="fa-solid fa-server icon-purple"></i> ASP.NET Core</li>
+                <li><i class="devicon-dotnetcore-plain colored"></i> .NET</li>
+                <li><i class="fa-solid fa-plug icon-white"></i> REST APIs</li>
+                <li><i class="fa-solid fa-layer-group icon-cyan"></i> Entity Framework Core</li>
+                <li><i class="fa-brands fa-java java-icon"></i> Java</li>
+                <li><i class="fa-solid fa-laptop-code cpp-icon"></i> C++</li>
+                <li><i class="fa-brands fa-python python-icon"></i> Python</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <h3 class="card-title">
+                <i class="fa-solid fa-globe"></i> Frontend
+                <span class="card-dot"></span>
+              </h3>
+              <ul>
+                <li><i class="fa-brands fa-html5 html-icon"></i> HTML5</li>
+                <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS3</li>
+                <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
+                <li><i class="fa-brands fa-bootstrap bootstrap-icon"></i> Bootstrap</li>
+                <li><i class="fa-solid fa-mobile-screen-button icon-skyblue"></i> Responsive Web Design</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <h3 class="card-title">
+                <i class="fa-solid fa-database"></i> Databases
+                <span class="card-dot"></span>
+              </h3>
+              <ul>
+                <li><i class="fa-solid fa-database sql-icon"></i> SQL Server</li>
+                <li><i class="fa-solid fa-database"></i> SQL</li>
+                <li><i class="devicon-oracle-original colored"></i> Oracle SQL</li>
+                <li><i class="fa-solid fa-diagram-project"></i> Database Design</li>
+                <li><i class="fa-solid fa-layer-group icon-cyan"></i> Entity Framework Core</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <h3 class="card-title">
+                <i class="fa-solid fa-diagram-project"></i> Software Engineering
+                <span class="card-dot"></span>
+              </h3>
+              <ul>
+                <li><i class="fa-solid fa-cubes"></i> Object-Oriented Programming</li>
+                <li><i class="fa-solid fa-sitemap"></i> Systems Analysis</li>
+                <li><i class="fa-solid fa-plug icon-white"></i> API Design</li>
+                <li><i class="fa-brands fa-git-alt git-icon"></i> Git</li>
+                <li><i class="fa-brands fa-github"></i> GitHub</li>
+                <li><i class="fa-solid fa-bug"></i> Debugging</li>
+                <li><i class="fa-solid fa-vial"></i> Software Testing</li>
+                <li><i class="fa-solid fa-file-lines"></i> Technical Documentation</li>
+              </ul>
+            </div>
+
+            <div class="skill-card">
+              <h3 class="card-title">
+                <i class="fa-solid fa-gears"></i> Additional
+                <span class="card-dot"></span>
+              </h3>
+              <ul>
+                <li><i class="devicon-opencv-plain colored"></i> OpenCV</li>
+                <li><i class="fa-solid fa-eye icon-skyblue"></i> Computer Vision</li>
+                <li><i class="fa-solid fa-network-wired cisco-icon"></i> Cisco Packet Tracer</li>
+                <li><i class="fa-solid fa-wifi wifi-icon"></i> Networking</li>
+                <li><i class="fa-solid fa-lock icon-rust"></i> Information Security</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="soft-skills-btn-container">
+            <button
+              type="button"
+              class="soft-skills-btn"
+              id="softSkillsBtn"
+              aria-expanded="false"
+              aria-controls="softSkillsPanel"
+            >
+              View Professional Skills
+            </button>
+          </div>
+
+          <div
+            class="soft-skills"
+            id="softSkillsPanel"
+            role="dialog"
+            aria-label="Professional skills"
+            aria-hidden="true"
+          >
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-people-group" style="color: blue"></i> Teamwork
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-comments" style="color: #10b981"></i> Communication
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-lightbulb" style="color: #f59e0b"></i> Problem Solving
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-clock" style="color: grey"></i> Time Management
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-rocket" style="color: tomato"></i> Adaptability
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-medal" style="color: gold"></i> Leadership
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-magnifying-glass" style="color: #06b6b6d4"></i>
+              Attention to Detail
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-handshake" style="color: palegoldenrod"></i>
+              Cross-functional Collaboration
+            </div>
+            <div class="soft-skill-card">
+              <i class="fa-solid fa-file-lines" style="color: lightgrey"></i>
+              Technical Documentation
+            </div>
+            <button
+              type="button"
+              class="close-modal"
+              id="closeSoftSkills"
+              aria-label="Close professional skills"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!--================ PROJECTS SECTION ================-->
+      <section class="projects" id="projects" aria-labelledby="projectsHeading">
+        <div class="section-container projects-container">
+          <span class="projects-small-title">PROJECTS</span>
+          <h2 class="projects-title" id="projectsHeading">Things I've Built</h2>
+
+          <div class="project-filters" id="projectFilters" role="group" aria-label="Filter projects by category">
+            <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Web Development</button>
+            <button type="button" class="filter-btn" data-filter="dotnet" aria-pressed="false">C#/.NET</button>
+            <button type="button" class="filter-btn" data-filter="python" aria-pressed="false">Python</button>
+            <button type="button" class="filter-btn" data-filter="database" aria-pressed="false">Database</button>
+            <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">AI/ML</button>
+            <button type="button" class="filter-btn" data-filter="networking" aria-pressed="false">Networking</button>
+          </div>
+          <p class="visually-hidden" id="filterStatus" role="status" aria-live="polite"></p>
+
+          <div class="projects-grid" id="projectsGrid">
+            <!-- Rendered from projectData in script.js -->
+          </div>
+          <noscript>
+            <p class="noscript-note">
+              Project cards need JavaScript. All of my projects are on
+              <a href="https://github.com/thabocoolT">GitHub</a>.
+            </p>
+          </noscript>
+
+          <div class="more-projects">
+            <a
+              href="https://github.com/thabocoolT"
+              class="github-projects-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View more projects on GitHub"
+            >
+              <i class="fa-brands fa-github"></i>
+              View More on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!--===================ABOUT SECTION================= -->
+      <section id="about" class="about" aria-labelledby="aboutHeading">
+        <div class="section-container about-container reveal neon-frame">
+          <div class="section-title">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            <h2 id="aboutHeading">About Me</h2>
+          </div>
+          <div class="about-content reveal">
+            <div class="about-left">
+              <p class="about-subtitle">MY JOURNEY</p>
+              <div class="about-text">
+                <p>
+                  I'm a final-year BSc Information Technology student at
+                  North-West University, focused on software development with
+                  C# and .NET. My strongest evidence is Varsity Trade, a
+                  full-stack campus marketplace built on ASP.NET Core, Entity
+                  Framework Core and SQL Server, where I work across database
+                  design, REST API development and UI planning.
+                </p>
+                <p>
+                  Alongside my studies I tutor 200+ first-year IT students in
+                  C++ as a Student Assistant, and in 2024 I completed
+                  Industry-Based Learning at Heidelberg Hospital, supporting
+                  users and seeing how requirements shape enterprise systems.
+                  I'm now looking for graduate and junior software development
+                  opportunities.
+                </p>
+              </div>
+            </div>
+            <div class="about-divider" aria-hidden="true"></div>
+            <div class="about-right">
+              <div class="info-item info-name">
+                <span class="fa-solid fa-user" aria-hidden="true"></span>
+                <p><strong>Name:</strong> Thabo Prince Motau</p>
+              </div>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="fa-solid fa-graduation-cap" aria-hidden="true"></span>
+                  <p><strong>Education:</strong> BSc Information Technology<br />NWU</p>
+                </div>
+                <div class="info-item">
+                  <span class="fa-solid fa-phone" aria-hidden="true"></span>
+                  <p>
+                    <strong>Telephone:</strong><br /><a href="tel:+27630028070">+27 63 002 8070</a>
+                  </p>
+                </div>
+                <div class="info-item">
+                  <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
+                  <p>
+                    <strong>Location:</strong><br />
+                    <a
+                      href="https://maps.google.com/?q=Vereeniging,+South+Africa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Vereeniging, South Africa</a
+                    >
+                  </p>
+                </div>
+                <div class="info-item">
+                  <span class="fa-solid fa-circle-check" aria-hidden="true"></span>
+                  <p>
+                    <strong>Availability:</strong><br /><a href="#contact">Open to Opportunities</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="journey">
+            <h3 class="journey-title">Timeline</h3>
+            <ol class="timeline">
+              <li>
+                <span class="timeline-year">2023</span>
+                <span class="timeline-text">Started BSc Information Technology at NWU</span>
+              </li>
+              <li>
+                <span class="timeline-year">2024</span>
+                <span class="timeline-text">Industry-Based Learning: IT support &amp; systems analysis at Heidelberg Hospital</span>
+              </li>
+              <li>
+                <span class="timeline-year">2025</span>
+                <span class="timeline-text">C++ Student Assistant; built SecureVision</span>
+              </li>
+              <li>
+                <span class="timeline-year">2026</span>
+                <span class="timeline-text">Varsity Trade, SashAI and final-year development</span>
+              </li>
+              <li>
+                <span class="timeline-year">2027</span>
+                <span class="timeline-text">Expected BSc IT graduation (May)</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="now-grid">
+            <div class="now-card">
+              <h3><i class="fa-solid fa-hammer" aria-hidden="true"></i> Currently Building</h3>
               <p>
-                A final-year BSc Information Technology student at North-West
-                University with a passion for building software that solves
-                real-world problems. My interests span software development,
-                systems analysis and design, artificial intelligence and machine
-                learning, and software testing. Throughout my academic journey,
-                I have enjoyed turning ideas into practical applications while
-                learning how different technologies and systems work together.
-                Whether I'm designing a database, developing a web application,
-                or exploring AI concepts, I enjoy the process of analysing
-                problems and creating meaningful solutions. Beyond my
-                coursework, I actively build personal projects to expand my
-                technical skills and gain hands-on experience with modern
-                technologies. I believe that continuous learning, curiosity, and
-                practical experience are essential to becoming a well-rounded IT
-                professional, and I am always looking for opportunities to
-                challenge myself and grow.
-
-                <button class="view-more-btn" id="viewMoreBtn">
-                  View More
-                </button>
+                <a href="#featured">Varsity Trade</a> — a full-stack, campus-locked student
+                marketplace on ASP.NET Core and SQL Server.
+              </p>
+            </div>
+            <div class="now-card">
+              <h3><i class="fa-solid fa-road" aria-hidden="true"></i> Learning Next</h3>
+              <p>
+                Items on the Varsity Trade roadmap: Azure deployment, CI/CD with
+                GitHub Actions, and real-time messaging with SignalR.
               </p>
             </div>
           </div>
-          <div class="about-divider"></div>
-          <div class="about-right">
-            <div class="info-item info-name">
-              <span class="fa-solid fa-user"></span>
-              <p><strong>Name:</strong> Thabo Prince Motau</p>
+        </div>
+      </section>
+
+      <!--================ CONTACT SECTION ================-->
+      <section id="contact" class="contact" aria-labelledby="contactHeading">
+        <div class="section-container contact-container">
+          <span class="contact-small-title">CONTACT</span>
+          <h2 class="contact-title" id="contactHeading">Get In Touch</h2>
+
+          <div class="contact-wrapper">
+            <!-- LEFT: intro text -->
+            <div class="contact-intro-panel reveal">
+              <span class="contact-badge">OPEN TO OPPORTUNITIES</span>
+              <h3>
+                Have a software project, <span>internship or graduate opportunity?</span>
+              </h3>
+              <p>I'm interested in:</p>
+              <ul class="contact-interests">
+                <li>Software Development</li>
+                <li>Graduate Software Developer roles</li>
+                <li>Software Engineering internships</li>
+                <li>Junior Developer roles</li>
+                <li>Related technology opportunities</li>
+              </ul>
             </div>
-            <div class="info-grid">
-              <div class="info-item">
-                <span class="fa-solid fa-graduation-cap"></span>
-                <p>
-                  <strong>Education:</strong> BSc Information Technology<br />NWU
-                </p>
+
+            <!-- CENTER: form -->
+            <div class="contact-form-wrapper reveal">
+              <form
+                class="contact-form"
+                action="https://formspree.io/f/meedqrpq"
+                method="POST"
+              >
+                <div class="form-row">
+                  <div class="input-group">
+                    <label for="cf-name">Name</label>
+                    <input
+                      type="text"
+                      id="cf-name"
+                      name="name"
+                      placeholder="Your Name"
+                      autocomplete="name"
+                      required
+                    />
+                  </div>
+                  <div class="input-group">
+                    <label for="cf-email">Email</label>
+                    <input
+                      type="email"
+                      id="cf-email"
+                      name="email"
+                      placeholder="Your Email"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="cf-subject">Subject</label>
+                  <input
+                    type="text"
+                    id="cf-subject"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label for="cf-message">Message</label>
+                  <textarea
+                    id="cf-message"
+                    name="message"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="contact-btn">
+                  Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                </button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <!-- RIGHT: contact info panel -->
+            <div class="contact-info-panel reveal">
+              <h3>Contact Information</h3>
+
+              <div class="contact-info-item">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <div class="contact-info-text">
+                  <span>Email</span>
+                  <a href="mailto:thaboprince252@gmail.com">thaboprince252@gmail.com</a>
+                </div>
               </div>
-              <div class="info-item">
-                <span class="fa-solid fa-phone"></span>
-                <p>
-                  <strong>Telephone:</strong><br /><a href="tel:+27630028070"
-                    >+27 63 002 8070</a
-                  >
-                </p>
+
+              <div class="contact-info-item">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <div class="contact-info-text">
+                  <span>Phone</span>
+                  <a href="tel:+27630028070">+27 63 002 8070</a>
+                </div>
               </div>
-              <div class="info-item">
-                <span class="fa-solid fa-location-dot"></span>
-                <p>
-                  <strong>Location:</strong><br />
+
+              <div class="contact-info-item">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <div class="contact-info-text">
+                  <span>Location</span>
                   <a
                     href="https://maps.google.com/?q=Vereeniging,+South+Africa"
                     target="_blank"
                     rel="noopener noreferrer"
                     >Vereeniging, South Africa</a
                   >
-                </p>
-              </div>
-              <div class="info-item">
-                <span class="fa-solid fa-circle-check"></span>
-                <p>
-                  <strong>Availability:</strong><br /><a href="#contact"
-                    >Open to Opportunities</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= SKILLS SECTION ================= -->
-    <section id="skills" class="skills">
-      <div class="section-container skills-container">
-        <span class="skills-small-title">SKILLS</span>
-        <h2 class="skills-title">My Technical Toolkit</h2>
-        <div class="skills-slider-wrapper">
-          <button
-            class="skills-arrow left-arrow"
-            aria-label="Scroll skills left"
-          >
-            ❮
-          </button>
-          <div class="skills-slider-viewport">
-            <div class="skills-slider" id="skillsSlider">
-              <!-- ORIGINAL SET -->
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-terminal"></i> Programming Languages
-                  <span class="card-dot"></span>
                 </div>
-                <ul>
-                  <li><i class="fa-brands fa-java java-icon"></i> Java</li>
-                  <li><i class="fa-solid fa-code csharp-icon"></i> C#</li>
-                  <li>
-                    <i class="fa-brands fa-python python-icon"></i> Python
-                  </li>
-                  <li><i class="fa-solid fa-laptop-code cpp-icon"></i> C++</li>
-                  <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
-                </ul>
-              </div>
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-globe"></i> Frontend Development
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li><i class="fa-brands fa-html5 html-icon"></i> HTML5</li>
-                  <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS3</li>
-                  <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
-                  <li><i class="fa-brands fa-react react-icon"></i> React</li>
-                  <li>
-                    <i class="fa-brands fa-bootstrap bootstrap-icon"></i>
-                    Bootstrap
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-server"></i> Backend Development
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-solid fa-server icon-purple"></i> ASP.NET Core
-                    Web API
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-layer-group icon-cyan"></i> Entity
-                    Framework Core
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-key icon-gold"></i> JWT Authentication
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-user-shield icon-grey"></i> ASP.NET
-                    Identity
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-plug icon-white"></i> RESTful APIs
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-database"></i> Databases
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="devicon-oracle-original colored"></i> Oracle SQL
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-database sql-icon"></i> SQL Server
-                  </li>
-                  <li><i class="devicon-mongodb-plain colored"></i> MongoDB</li>
-                  <li>
-                    <i class="fa-solid fa-database"></i> SQL Server Management
-                    System
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-diagram-project"></i> Software
-                  Engineering
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li><i class="fa-solid fa-cube icon-brown"></i> UML</li>
-                  <li>
-                    <i class="fa-solid fa-users-viewfinder icon-burlywood"></i>
-                    Use Case Diagrams
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-arrows-to-circle"></i> Data Flow
-                    Diagrams
-                  </li>
-                  <li><i class="fa-solid fa-sitemap"></i> System Design</li>
-                  <li>
-                    <i class="fa-solid fa-code-branch"></i> Clean Architecture
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-network-wired"></i> Networking and
-                  Security
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-solid fa-diagram-project network-icon"></i>
-                    Network Topologies
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-shield-halved security-icon"></i>
-                    Network Security
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-wifi wifi-icon"></i> Computer Networks
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-lock icon-rust"></i> Information
-                    Security
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-gears"></i> Developer Tools
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-brands fa-git-alt git-icon"></i> Git &amp;
-                    GitHub
-                  </li>
-                  <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
-                  <li>
-                    <i class="devicon-visualstudio-plain colored"></i> Visual
-                    Studio
-                  </li>
-                  <li><i class="fa-solid fa-book"></i> Swagger/OpenApi</li>
-                  <li>
-                    <i class="fa-solid fa-gears agile-icon"></i> Agile Methods
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-network-wired cisco-icon"></i> Cisco
-                    Packet Tracer
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card">
-                <div class="card-title">
-                  <i class="fa-solid fa-server"></i> AI &amp; Machine Learning
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-solid fa-robot icon-navy"></i> AI Applications
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-computer icon-darkgray"></i> Machine
-                    Learning Basics
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-eye icon-skyblue"></i> Computer Vision
-                  </li>
-                  <li><i class="devicon-opencv-plain colored"></i> OpenCV</li>
-                </ul>
               </div>
 
-              <!-- DUPLICATE SET (aria-hidden, purely visual — powers the seamless infinite-scroll loop) -->
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-terminal"></i> Programming Languages
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li><i class="fa-brands fa-java java-icon"></i> Java</li>
-                  <li><i class="fa-solid fa-code csharp-icon"></i> C#</li>
-                  <li>
-                    <i class="fa-brands fa-python python-icon"></i> Python
-                  </li>
-                  <li><i class="fa-solid fa-laptop-code cpp-icon"></i> C++</li>
-                  <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
-                </ul>
-              </div>
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-globe"></i> Frontend Development
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li><i class="fa-brands fa-html5 html-icon"></i> HTML5</li>
-                  <li><i class="fa-brands fa-css3-alt css-icon"></i> CSS3</li>
-                  <li><i class="fa-brands fa-js js-icon"></i> JavaScript</li>
-                  <li><i class="fa-brands fa-react react-icon"></i> React</li>
-                  <li>
-                    <i class="fa-brands fa-bootstrap bootstrap-icon"></i>
-                    Bootstrap
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-server"></i> Backend Development
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-solid fa-server icon-purple"></i> ASP.NET Core
-                    Web API
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-layer-group icon-cyan"></i> Entity
-                    Framework Core
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-key icon-gold"></i> JWT Authentication
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-user-shield icon-grey"></i> ASP.NET
-                    Identity
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-plug icon-white"></i> RESTful APIs
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-database"></i> Databases
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="devicon-oracle-original colored"></i> Oracle SQL
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-database sql-icon"></i> SQL Server
-                  </li>
-                  <li><i class="devicon-mongodb-plain colored"></i> MongoDB</li>
-                  <li>
-                    <i class="fa-solid fa-database"></i> SQL Server Management
-                    System
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-diagram-project"></i> Software
-                  Engineering
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li><i class="fa-solid fa-cube icon-brown"></i> UML</li>
-                  <li>
-                    <i class="fa-solid fa-users-viewfinder icon-burlywood"></i>
-                    Use Case Diagrams
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-arrows-to-circle"></i> Data Flow
-                    Diagrams
-                  </li>
-                  <li><i class="fa-solid fa-sitemap"></i> System Design</li>
-                  <li>
-                    <i class="fa-solid fa-code-branch"></i> Clean Architecture
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-network-wired"></i> Networking and
-                  Security
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-solid fa-diagram-project network-icon"></i>
-                    Network Topologies
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-shield-halved security-icon"></i>
-                    Network Security
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-wifi wifi-icon"></i> Computer Networks
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-lock icon-rust"></i> Information
-                    Security
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-gears"></i> Developer Tools
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-brands fa-git-alt git-icon"></i> Git &amp;
-                    GitHub
-                  </li>
-                  <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
-                  <li>
-                    <i class="devicon-visualstudio-plain colored"></i> Visual
-                    Studio
-                  </li>
-                  <li><i class="fa-solid fa-book"></i> Swagger/OpenApi</li>
-                  <li>
-                    <i class="fa-solid fa-gears agile-icon"></i> Agile Methods
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-network-wired cisco-icon"></i> Cisco
-                    Packet Tracer
-                  </li>
-                </ul>
-              </div>
-              <div class="skill-card" aria-hidden="true">
-                <div class="card-title">
-                  <i class="fa-solid fa-server"></i> AI &amp; Machine Learning
-                  <span class="card-dot"></span>
-                </div>
-                <ul>
-                  <li>
-                    <i class="fa-solid fa-robot icon-navy"></i> AI Applications
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-computer icon-darkgray"></i> Machine
-                    Learning Basics
-                  </li>
-                  <li>
-                    <i class="fa-solid fa-eye icon-skyblue"></i> Computer Vision
-                  </li>
-                  <li><i class="devicon-opencv-plain colored"></i> OpenCV</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <button
-            class="skills-arrow right-arrow"
-            aria-label="Scroll skills right"
-          >
-            ❯
-          </button>
-        </div>
-        <div class="soft-skills-btn-container">
-          <button class="soft-skills-btn">View Professional Skills</button>
-        </div>
-        <div class="soft-skills">
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-people-group" style="color: blue"> </i>
-            Teamwork
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-comments" style="color: #10b981"> </i>
-            Communication
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-lightbulb" style="color: #f59e0b"> </i>
-            Problem Solving
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-clock" style="color: grey"> </i>Time
-            Management
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-rocket" style="color: tomato"> </i>
-            Adaptability
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-medal" style="color: gold"> </i> Leadership
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-magnifying-glass" style="color: #06b6b6d4">
-            </i>
-            Attention to Detail
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-handshake" style="color: palegoldenrod"> </i>
-            Cross-functional Collaboration
-          </div>
-          <div class="soft-skill-card">
-            <i class="fa-solid fa-file-lines" style="color: lightgrey"> </i>
-            Technical Documentation
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--================ PROJECTS SECTION ================-->
-    <section class="projects" id="projects">
-      <div class="section-container projects-container">
-        <span class="projects-small-title">PROJECTS</span>
-        <h2 class="projects-title">Things I've Built</h2>
-        <div class="projects-grid" id="projectsGrid">
-          <!-- Rendered from projectData in script.js -->
-        </div>
-        <div class="more-projects">
-          <a
-            href="https://github.com/thabocoolT"
-            class="github-projects-btn"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View more projects on GitHub"
-          >
-            <i class="fa-brands fa-github"></i>
-            View More on GitHub
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!--================ CONTACT SECTION ================-->
-    <section id="contact" class="contact">
-      <div class="section-container contact-container">
-        <span class="contact-small-title">CONTACT</span>
-        <h2 class="contact-title">Get In Touch</h2>
-
-        <div class="contact-wrapper">
-          <!-- LEFT: intro text -->
-          <div class="contact-intro-panel reveal">
-            <span class="contact-badge">GET IN TOUCH</span>
-            <h2>Let's build something <span>amazing together</span></h2>
-            <p>
-              I'm always open to discussing software development, systems
-              analysis, technology projects, internships, and collaboration
-              opportunities.
-            </p>
-          </div>
-
-          <!-- CENTER: form -->
-          <div class="contact-form-wrapper reveal">
-            <form
-              class="contact-form"
-              action="https://formspree.io/f/meedqrpq"
-              method="POST"
-            >
-              <div class="form-row">
-                <div class="input-group">
-                  <label>Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    required
-                  />
-                </div>
-                <div class="input-group">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="input-group">
-                <label>Subject</label>
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                />
-              </div>
-              <div class="input-group">
-                <label>Message</label>
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="contact-btn">
-                Send Message <i class="fa-solid fa-paper-plane"></i>
-              </button>
-              <p class="form-status"></p>
-            </form>
-          </div>
-
-          <!-- RIGHT: contact info panel -->
-          <div class="contact-info-panel reveal">
-            <h3>Contact Information</h3>
-
-            <div class="contact-info-item">
-              <i class="fa-solid fa-envelope"></i>
-              <div class="contact-info-text">
-                <span>Email</span>
-                <a href="mailto:thaboprince252@gmail.com"
-                  >thaboprince252@gmail.com</a
-                >
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <i class="fa-solid fa-phone"></i>
-              <div class="contact-info-text">
-                <span>Phone</span>
-                <a href="tel:+27630028070">+27 63 002 8070</a>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <i class="fa-solid fa-location-dot"></i>
-              <div class="contact-info-text">
-                <span>Location</span>
+              <div class="contact-social-row">
                 <a
-                  href="https://maps.google.com/?q=Vereeniging,+South+Africa"
+                  href="https://github.com/thabocoolT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Vereeniging, South Africa</a
+                  aria-label="GitHub"
                 >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href="https://linkedin.com/in/thaboprince25"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="mailto:thaboprince252@gmail.com" aria-label="Email">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
               </div>
-            </div>
-
-            <div class="contact-social-row">
-              <a
-                href="https://github.com/thabocoolT"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a
-                href="https://linkedin.com/in/thaboprince25"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="mailto:thaboprince252@gmail.com" aria-label="Email">
-                <i class="fa-solid fa-envelope"></i>
-              </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!--================ FOOTER ================-->
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-logo">TP Motau</div>
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Footer">
           <a href="#home">Home</a>
           <a href="#featured">Featured</a>
-          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
-        </div>
+        </nav>
         <div class="footer-socials">
           <a
             href="https://github.com/thabocoolT"
@@ -826,9 +747,18 @@
     </footer>
 
     <!--================ Project Modal ================-->
-    <div class="project-modal" id="projectModal">
+    <div
+      class="project-modal"
+      id="projectModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-hidden="true"
+    >
       <div class="modal-content">
-        <span class="close-modal" id="closeModal">&times;</span>
+        <button type="button" class="close-modal" id="closeModal" aria-label="Close project details">
+          &times;
+        </button>
 
         <div class="modal-header">
           <div class="modal-header-text">
@@ -838,14 +768,27 @@
           </div>
         </div>
 
-        <div class="modal-tabs">
-          <button class="modal-tab active" data-tab="overview">Overview</button>
-          <button class="modal-tab" data-tab="demo">Demo</button>
-          <button class="modal-tab" data-tab="docs">Documentation</button>
+        <div class="modal-tabs" role="tablist" aria-label="Project details">
+          <button type="button" class="modal-tab active" id="tabOverview" role="tab" aria-selected="true" aria-controls="panelOverview" data-tab="overview">Overview</button>
+          <button type="button" class="modal-tab" id="tabDemo" role="tab" aria-selected="false" aria-controls="panelDemo" tabindex="-1" data-tab="demo">Demo</button>
+          <button type="button" class="modal-tab" id="tabDocs" role="tab" aria-selected="false" aria-controls="panelDocs" tabindex="-1" data-tab="docs">Documentation</button>
         </div>
 
-        <div class="modal-panel active" id="panelOverview">
+        <div class="modal-panel active" id="panelOverview" role="tabpanel" aria-labelledby="tabOverview">
+          <div id="modalMetrics" hidden></div>
+
           <p class="modal-description" id="modalDescription"></p>
+
+          <div class="modal-cards" id="modalCases" hidden>
+            <div class="modal-card" id="modalProblemCard" hidden>
+              <h3>Problem</h3>
+              <p id="modalProblem"></p>
+            </div>
+            <div class="modal-card" id="modalSolutionCard" hidden>
+              <h3>Solution</h3>
+              <p id="modalSolution"></p>
+            </div>
+          </div>
 
           <h3>Key Features</h3>
           <ul id="modalFeatures"></ul>
@@ -853,40 +796,41 @@
           <h3>Tech Stack</h3>
           <div class="modal-tech" id="modalTech"></div>
 
+          <div id="modalGallerySection" hidden>
+            <h3>Screenshots</h3>
+            <div class="modal-gallery" id="modalGallery"></div>
+          </div>
+
           <div class="modal-links" id="modalLinks"></div>
         </div>
 
-        <div class="modal-panel" id="panelDemo">
+        <div class="modal-panel" id="panelDemo" role="tabpanel" aria-labelledby="tabDemo">
           <div id="modalVideoWrap"></div>
         </div>
 
-        <div class="modal-panel" id="panelDocs">
+        <div class="modal-panel" id="panelDocs" role="tabpanel" aria-labelledby="tabDocs">
           <div class="doc-section">
-            <h3>
-              <i class="fa-solid fa-diagram-project"></i> Architecture &amp;
-              Approach
-            </h3>
+            <h3><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Technical Implementation</h3>
             <p id="docArchitecture"></p>
           </div>
           <div class="doc-section">
-            <h3>
-              <i class="fa-solid fa-download"></i> Setup &amp; Installation
-            </h3>
+            <h3><i class="fa-solid fa-download" aria-hidden="true"></i> Setup &amp; Installation</h3>
             <ol id="docSetup"></ol>
           </div>
           <div class="doc-section">
-            <h3><i class="fa-solid fa-play"></i> Usage</h3>
+            <h3><i class="fa-solid fa-play" aria-hidden="true"></i> Usage</h3>
             <p id="docUsage"></p>
           </div>
           <div class="doc-section">
-            <h3>
-              <i class="fa-solid fa-triangle-exclamation"></i> Challenges &amp;
-              Learnings
-            </h3>
+            <h3><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> Challenges</h3>
             <p id="docChallenges"></p>
           </div>
+          <div class="doc-section" id="docLearnedSection" hidden>
+            <h3><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> What I Learned</h3>
+            <ul id="docLearned"></ul>
+          </div>
           <div class="doc-section">
-            <h3><i class="fa-solid fa-road"></i> Future Improvements</h3>
+            <h3><i class="fa-solid fa-road" aria-hidden="true"></i> Planned / Future Improvements</h3>
             <ul id="docFuture"></ul>
           </div>
         </div>
