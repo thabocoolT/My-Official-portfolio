@@ -1,28 +1,4 @@
-// =====================================================
-// PROJECT DATA — single source of truth for the flagship
-// card, the projects grid, the filters and the project modal.
-// =====================================================
-//
-// Fields per project
-//   status / statusClass : "Completed" (completed), "Active Development" /
-//                          "In Development" (in-progress), "Prototype" (planning)
-//   categories           : any of "web" "dotnet" "python" "database" "ai" "networking"
-//                          (drives the filter buttons in index.html)
-//   metrics              : optional [{ value, label }] — only verifiable numbers
-//   problem / solution   : optional short strings (Overview tab cards)
-//   learned              : optional array of strings (Documentation tab)
-//   screenshots          : [{ src, caption }] — leave [] until real images exist;
-//                          the Screenshots block stays hidden while it is empty
-//   image                : card image path, or null to show an icon tile
-//   live                 : optional live-site URL
-//   videoId              : YouTube video ID, or "" for none
-//
-// VARSITY TRADE SCREENSHOT PLAN (add real captures, then fill the array):
-//   assets/screenshots/varsitytrade/01-landing.png
-//   02-login-register, 03-buyer-dashboard, 04-seller-dashboard,
-//   05-create-listing, 06-listing-details, 07-messaging, 08-offers,
-//   09-admin-dashboard, 10-database-erd, 11-swagger-api
-//   e.g. { src: "assets/screenshots/varsitytrade/01-landing.png", caption: "Landing page" }
+
 
 const FLAGSHIP_KEY = "varsitytrade";
 
@@ -350,6 +326,65 @@ const projectData = {
     },
   },
 
+  advanceddb: {
+    icon: "📊",
+    title: "Uber & Bolt Urban Transport Analysis",
+    status: "In Development",
+    statusClass: "in-progress",
+    categories: ["database"],
+    image: null, // add e.g. "assets/project-advanced-db.png" (ERD screenshot) when ready
+    videoId: "",
+    tagline:
+      "CMPG321 Advanced Databases group project analysing driver earnings and platform commission for Uber and Bolt in South Africa.",
+    cardBlurb:
+      "Group project (CMPG321, Data Alchemists, Group 36): a seven-table PostgreSQL database and SQL analysis of driver earnings, platform commission and payout optimisation across Uber and Bolt. I am the database owner.",
+    metrics: [
+      { value: "7", label: "Database tables" },
+      { value: "6", label: "Research questions" },
+    ],
+    meta: [
+      { label: "Type", value: "Group University Project" },
+      { label: "Module", value: "CMPG321 – Advanced Databases" },
+      { label: "Role", value: "Database owner" },
+    ],
+    problem:
+      "Ride-hailing drivers' real earnings depend on the platform, the commission taken, the ride category, trip conditions and the city, which makes payouts hard to compare.",
+    solution:
+      "A shared PostgreSQL database with a fixed schema, an ERD, one set of SQL queries per research question, and a written analysis and report.",
+    description:
+      "This is a team project for the Advanced Databases module, studying Uber and Bolt urban transport in South Africa under the theme Driver Earnings, Platform Commission & Payout Optimization. I own the database (cmpg321_data_alchemists) that the whole group queries, and I review and merge teammates' pull requests.",
+    features: [
+      "Seven-table PostgreSQL schema: drivers, riders, vehicles, pricing surge zones, trip headers, trip fare breakdown and trip reviews",
+      "Six research questions covering platform differences, commission effect, ride category, trip conditions, city and category, and estimated net hourly earnings",
+      "Organised repository: databases, SQL queries, ERD, analysis, report and dataset folders",
+      "Team workflow: assigned research questions, a branch per contributor, and pull requests reviewed and merged by the database owner",
+    ],
+    tech: ["PostgreSQL", "SQL", "ERD", "Data Analysis", "Git & GitHub"],
+    github: "https://github.com/thabocoolT/Advanced-Databases",
+    screenshots: [],
+    docs: {
+      architecture:
+        "The repository is split into numbered folders: 01_Databases, 02_SQL_Queries, 03_ERD, 04_Analysis, 05_Report and 07_Dataset. The database has seven tables (sa_drivers, sa_riders, vehicles, pricing_surge_zones, trip_headers, trip_fare_breakdown and trip_reviews), and every team member works against that same structure.",
+      setup: [
+        "Clone the repository: <code>git clone https://github.com/thabocoolT/Advanced-Databases.git</code>",
+        "Create a PostgreSQL database named <code>cmpg321_data_alchemists</code>",
+        "Review the <code>01_Databases</code> folder for the database files and <code>02_SQL_Queries</code> for the analysis queries",
+      ],
+      usage:
+        "Each team member works on their assigned research questions, saves SQL in the matching file in 02_SQL_Queries, explains the important findings, commits regularly on their own branch and opens a pull request for the database owner to review.",
+      challenges:
+        "Keeping a whole team working on one shared schema: the project rules forbid renaming tables or columns or creating alternative versions of the database, and all work goes through branches and reviewed pull requests.",
+      learned: [
+        "Owning and maintaining a shared relational schema for a team",
+        "Running a branch and pull-request workflow on a group project",
+      ],
+      future: [
+        "Finish and document the analysis for each research question",
+        "Complete the final report",
+      ],
+    },
+  },
+
   portfolio: {
     icon: "💻",
     title: "Personal Portfolio Website",
@@ -373,7 +408,7 @@ const projectData = {
       "Downloadable CV and links to GitHub and LinkedIn",
     ],
     tech: ["HTML5", "CSS3", "JavaScript", "Formspree", "Netlify", "Git & GitHub"],
-    github: null, // add the repository URL once confirmed
+    github: "https://github.com/thabocoolT/My-Official-portfolio",
     live: "https://thabo-motau-portfolio.netlify.app/",
     screenshots: [],
     docs: {
@@ -400,6 +435,175 @@ const projectData = {
       ],
     },
   },
+
+  conferencetool: {
+    icon: "📅",
+    title: "Conference Management Tool",
+    status: "Completed",
+    statusClass: "completed",
+    categories: ["web", "database"],
+    image: null, // add e.g. "assets/project-conference.png" (Swagger docs screenshot) when ready
+    videoId: "",
+    tagline:
+      "Group university project: a Laravel/PostgreSQL conference management system. I contributed to the backend, mainly reporting and dashboard statistics.",
+    cardBlurb:
+      "Group university project (IT Development module): a Laravel and PostgreSQL conference management system with a documented REST API. I worked on the backend reporting and dashboard/statistics functionality.",
+    meta: [
+      { label: "Type", value: "Group University Software Development Project" },
+      { label: "Role", value: "Backend Developer / Reporting & Dashboard Developer" },
+      { label: "Module", value: "IT Development" },
+    ],
+    description:
+      "Conference Management Tool was a collaborative university software development project where I contributed to the Laravel backend, particularly the reporting and dashboard/statistics functionality. The team set out to build a web-based system for managing academic and professional conferences and their related processes. I did not build the whole system: different team members worked on different areas using Git branches and merged into a shared repository.",
+    problem:
+      "Conference organisers need one system to manage conferences and the processes around them, such as submissions and reporting.",
+    solution:
+      "A modular, backend-oriented web application on Laravel and PostgreSQL, exposed as a REST API secured with Laravel Sanctum and documented with Swagger/OpenAPI.",
+    features: [
+      "Team-built system: user authentication, conference management, submissions, reporting and administrative/statistical dashboards",
+      "RESTful API secured with Laravel Sanctum",
+      "Interactive API documentation generated with L5-Swagger / OpenAPI",
+      "Modular structure separating authentication, conferences, submissions and reporting",
+    ],
+    sections: [
+      {
+        title: "My Contribution",
+        items: [
+          "Reporting and dashboard/statistics functionality in the Laravel backend",
+          "Submission statistics, including filtering statistics by conference (for example GetSubmissionStatisticsAction)",
+          "Reporting-related API endpoints and request validation/filtering (for example ReportingFilterRequest)",
+          "Database queries that retrieve reporting data from PostgreSQL",
+          "Swagger/OpenAPI documentation for the endpoints I worked on",
+          "Testing API endpoints and responses",
+          "Worked on my own Git branch and integrated the result into the team's Laravel codebase",
+        ],
+      },
+      {
+        title: "Skills Demonstrated",
+        items: [
+          "Working in a software team with Git and GitHub",
+          "Working within an existing codebase written by several developers",
+          "Backend development with Laravel Actions, Requests and Models",
+          "Working with PostgreSQL and writing reporting queries",
+          "Building and documenting REST APIs",
+          "Debugging and integrating code from multiple developers",
+        ],
+      },
+    ],
+    tech: [
+      "PHP",
+      "Laravel",
+      "PostgreSQL",
+      "Laravel Sanctum",
+      "Swagger/OpenAPI",
+      "REST APIs",
+      "Git & GitHub",
+    ],
+    github: "https://github.com/Waynemusawakhe/Conference-Management-Tool",
+    live: "https://13-51-116-107.sslip.io/api/documentation",
+    liveLabel: "View live API documentation",
+    screenshots: [],
+    docs: {
+      architecture:
+        "A modular, backend-oriented Laravel application. Functionality is separated into areas such as authentication, conferences, submissions and reporting, and is exposed through a RESTful API that uses Laravel Sanctum for authentication and L5-Swagger/OpenAPI for documentation. My part sits in the reporting area, using Laravel Action, Request and Model classes.",
+      setup: [],
+      usage:
+        "The backend's interactive API documentation is hosted at the live link above. The repository belongs to a teammate (Waynemusawakhe); this project was built collaboratively.",
+      challenges: "",
+      learned: [
+        "Reading and extending a shared Laravel codebase instead of starting from scratch",
+        "Integrating work from a separate Git branch with changes from other team members",
+        "Documenting API endpoints so other developers can test and consume them",
+      ],
+      future: [],
+    },
+  },
+
+  cpuscheduling: {
+    icon: "⚙️",
+    title: "CPU Scheduling Simulator",
+    status: "Completed",
+    statusClass: "completed",
+    categories: [], // TODO: add a category once the language/stack is confirmed
+    image: null, // add a Gantt chart or results graph when ready
+    videoId: "",
+    tagline:
+      "Group university project: simulating and comparing CPU scheduling algorithms for CMPG324 Operating Systems.",
+    cardBlurb:
+      "Group project for CMPG324 Operating Systems at North-West University: a simulator that generates process workloads, runs FCFS, SRTF and Round Robin, and compares them using waiting time, response time, CPU utilisation, throughput and turnaround time.",
+    metrics: [
+      { value: "3", label: "Algorithms compared" },
+      { value: "10–50", label: "Processes per workload" },
+      { value: "5", label: "Performance metrics" },
+    ],
+    meta: [
+      { label: "Type", value: "Group University Project" },
+      { label: "Module", value: "CMPG324 – Operating Systems" },
+      { label: "Institution", value: "North-West University" },
+    ],
+    description:
+      "A CPU scheduling simulator built by a student group for the CMPG324 Operating Systems module. It creates process workloads, executes different scheduling algorithms, visualises the execution and compares the algorithms with standard operating-system performance metrics. The repository is owned by a teammate; I contributed to the project as a group member.",
+    problem:
+      "Show how different CPU scheduling algorithms behave and compare their performance as the number of processes grows.",
+    solution:
+      "A simulator that generates workloads of 10, 20, 30, 40 and 50 processes, runs three scheduling algorithms on them, collects performance data and presents the results graphically.",
+    features: [
+      "Process workloads of 10, 20, 30, 40 and 50 processes",
+      "Each process has an ID, an arrival time, a burst time, a priority and a time quantum",
+      "Simulated execution of every process under each algorithm",
+      "Visualised execution and graphical results",
+      "Performance data collected per algorithm and workload size",
+    ],
+    sections: [
+      {
+        title: "Algorithms Implemented",
+        items: [
+          "First Come First Served (FCFS)",
+          "Shortest Remaining Time First (SRTF)",
+          "Round Robin",
+        ],
+      },
+      {
+        title: "Performance Metrics",
+        items: [
+          "Waiting time",
+          "Response time",
+          "CPU utilisation",
+          "Throughput",
+          "Average turnaround time",
+        ],
+      },
+      {
+        title: "Skills Demonstrated",
+        items: [
+          "Operating-system concepts and CPU scheduling",
+          "Algorithm implementation and process simulation",
+          "Performance analysis, data collection and visualisation",
+          "Testing, debugging and team collaboration with Git and GitHub",
+        ],
+      },
+    ],
+    // TODO — My Contribution, Results/Outcome and What I Learned are intentionally
+    // left out until the code and findings are confirmed (see `sections` above).
+    tech: [
+      "CPU Scheduling",
+      "Operating Systems",
+      "Performance Analysis",
+      "Data Visualisation",
+      "Git & GitHub",
+    ], // TODO: add the programming language and libraries actually used
+    github: "https://github.com/KP-MABOTE/CPU-SCHEDULING",
+    screenshots: [],
+    docs: {
+      architecture: "",
+      setup: [],
+      usage:
+        "This repository is owned by a teammate (KP-MABOTE). See it on GitHub for the code and results.",
+      challenges: "",
+      learned: [],
+      future: [],
+    },
+  },
 };
 
 // Fixed display order for the projects grid (the flagship leads).
@@ -408,8 +612,11 @@ const PROJECT_ORDER = [
   "aiassistant",
   "securevision",
   "saferide",
+  "advanceddb",
   "cisco",
   "portfolio",
+  "conferencetool",
+  "cpuscheduling",
 ];
 
 // Decorative icon fonts should not be announced by screen readers.
@@ -586,6 +793,8 @@ const modalTitle = document.getElementById("modalTitle");
 const modalTagline = document.getElementById("modalTagline");
 const modalDescription = document.getElementById("modalDescription");
 const modalMetrics = document.getElementById("modalMetrics");
+const modalMeta = document.getElementById("modalMeta");
+const modalExtra = document.getElementById("modalExtra");
 const modalCases = document.getElementById("modalCases");
 const modalProblemCard = document.getElementById("modalProblemCard");
 const modalSolutionCard = document.getElementById("modalSolutionCard");
@@ -652,6 +861,13 @@ function populateModal(key) {
   modalMetrics.innerHTML = metricsHTML;
   modalMetrics.hidden = !metricsHTML;
 
+  // Type / role / module chips
+  const meta = data.meta || [];
+  modalMeta.innerHTML = meta
+    .map((m) => `<div><span>${m.label}</span><strong>${m.value}</strong></div>`)
+    .join("");
+  modalMeta.hidden = meta.length === 0;
+
   // Problem / Solution
   modalProblem.textContent = data.problem || "";
   modalSolution.textContent = data.solution || "";
@@ -660,6 +876,19 @@ function populateModal(key) {
   modalCases.hidden = !data.problem && !data.solution;
 
   fillList(modalFeatures, data.features, false);
+  modalFeatures.hidden = data.features.length === 0;
+  modalFeatures.previousElementSibling.hidden = data.features.length === 0;
+
+  // Extra sections (My Contribution, Algorithms, Metrics, Skills…)
+  modalExtra.innerHTML = (data.sections || [])
+    .map(
+      (sec) =>
+        `<h3>${sec.title}</h3>` +
+        (sec.items
+          ? `<ul>${sec.items.map((i) => `<li>${i}</li>`).join("")}</ul>`
+          : `<p>${sec.text}</p>`),
+    )
+    .join("");
 
   modalTech.innerHTML = "";
   data.tech.forEach((tech) => {
@@ -694,7 +923,7 @@ function populateModal(key) {
       modalLinkMarkup(
         data.live,
         "fa-solid fa-arrow-up-right-from-square",
-        "Visit live site",
+        data.liveLabel || "Visit live site",
         !data.github,
       ),
     );
@@ -716,19 +945,25 @@ function populateModal(key) {
          <p>No demo video available yet.</p>
        </div>`;
 
-  // Documentation tab
-  docArchitecture.textContent = Array.isArray(data.docs.architecture)
-    ? data.docs.architecture.join(" ")
-    : data.docs.architecture;
-  fillList(docSetup, data.docs.setup, true);
-  docUsage.textContent = Array.isArray(data.docs.usage)
-    ? data.docs.usage.join(" ")
-    : data.docs.usage;
-  docChallenges.textContent = data.docs.challenges;
+  // Documentation tab — sections with no content are hidden
+  const docText = (el, value) => {
+    const text = Array.isArray(value) ? value.join(" ") : value || "";
+    el.textContent = text;
+    el.closest(".doc-section").hidden = !text;
+  };
+  const docList = (el, items, asHTML) => {
+    const list = items || [];
+    fillList(el, list, asHTML);
+    el.closest(".doc-section").hidden = list.length === 0;
+  };
+  docText(docArchitecture, data.docs.architecture);
+  docList(docSetup, data.docs.setup, true);
+  docText(docUsage, data.docs.usage);
+  docText(docChallenges, data.docs.challenges);
   const learned = data.docs.learned || [];
   fillList(docLearned, learned, false);
   docLearnedSection.hidden = learned.length === 0;
-  fillList(docFuture, data.docs.future, false);
+  docList(docFuture, data.docs.future, false);
 }
 
 function setActiveModalTab(tabName, moveFocus) {
