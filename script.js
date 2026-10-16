@@ -1,5 +1,3 @@
-
-
 const FLAGSHIP_KEY = "varsitytrade";
 
 const projectData = {
@@ -9,7 +7,7 @@ const projectData = {
     status: "Active Development",
     statusClass: "in-progress",
     categories: ["web", "dotnet", "database"],
-    image: "assets/VT_Logo.png",
+    image: "assets/VT_Logo (1).png",
     logoFit: true,
     videoId: "",
     tagline: "Built for Students, by Students",
@@ -92,7 +90,7 @@ const projectData = {
     status: "Completed",
     statusClass: "completed",
     categories: ["python", "ai"],
-    image: "assets/project-4.png",
+    image: "assets/project-4.webp",
     videoId: "",
     tagline:
       "AI-powered desktop voice assistant for task automation and productivity.",
@@ -276,7 +274,7 @@ const projectData = {
     status: "Completed",
     statusClass: "completed",
     categories: ["networking"],
-    image: "assets/project-2.png",
+    image: "assets/project-2.webp",
     videoId: "",
     tagline:
       "Secure enterprise network infrastructure designed and simulated in Cisco Packet Tracer.",
@@ -407,7 +405,14 @@ const projectData = {
       "Scroll-reveal animations and a layered parallax background",
       "Downloadable CV and links to GitHub and LinkedIn",
     ],
-    tech: ["HTML5", "CSS3", "JavaScript", "Formspree", "Netlify", "Git & GitHub"],
+    tech: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Formspree",
+      "Netlify",
+      "Git & GitHub",
+    ],
     github: "https://github.com/thabocoolT/My-Official-portfolio",
     live: "https://thabo-motau-portfolio.netlify.app/",
     screenshots: [],
@@ -450,7 +455,10 @@ const projectData = {
       "Group university project (IT Development module): a Laravel and PostgreSQL conference management system with a documented REST API. I worked on the backend reporting and dashboard/statistics functionality.",
     meta: [
       { label: "Type", value: "Group University Software Development Project" },
-      { label: "Role", value: "Backend Developer / Reporting & Dashboard Developer" },
+      {
+        label: "Role",
+        value: "Backend Developer / Reporting & Dashboard Developer",
+      },
       { label: "Module", value: "IT Development" },
     ],
     description:
@@ -839,7 +847,8 @@ function modalLinkMarkup(href, iconClass, label, primary) {
   a.target = "_blank";
   a.rel = "noopener noreferrer";
   a.className =
-    "modal-link-btn " + (primary ? "modal-link-primary" : "modal-link-secondary");
+    "modal-link-btn " +
+    (primary ? "modal-link-primary" : "modal-link-secondary");
   a.innerHTML = `<i class="${iconClass}" aria-hidden="true"></i> ${label}`;
   return a;
 }
@@ -915,7 +924,12 @@ function populateModal(key) {
   modalLinks.innerHTML = "";
   if (data.github) {
     modalLinks.appendChild(
-      modalLinkMarkup(data.github, "fa-brands fa-github", "View on GitHub", true),
+      modalLinkMarkup(
+        data.github,
+        "fa-brands fa-github",
+        "View on GitHub",
+        true,
+      ),
     );
   }
   if (data.live) {
@@ -1033,7 +1047,8 @@ modalTabEls.forEach((tab) => {
   tab.addEventListener("keydown", (e) => {
     const i = modalTabEls.indexOf(tab);
     let next = null;
-    if (e.key === "ArrowRight") next = modalTabEls[(i + 1) % modalTabEls.length];
+    if (e.key === "ArrowRight")
+      next = modalTabEls[(i + 1) % modalTabEls.length];
     if (e.key === "ArrowLeft")
       next = modalTabEls[(i - 1 + modalTabEls.length) % modalTabEls.length];
     if (e.key === "Home") next = modalTabEls[0];
@@ -1083,7 +1098,8 @@ initProjectFilters();
     const p = Math.min(y / total, 1); // 0 = top, 1 = bottom
 
     // With reduced motion the layers still fade in, but nothing drifts or slides.
-    const drift = (px) => (prefersReducedMotion ? "none" : `translateY(${px}px)`);
+    const drift = (px) =>
+      prefersReducedMotion ? "none" : `translateY(${px}px)`;
 
     if (skyLayer) skyLayer.style.transform = drift(y * -0.03);
     if (starsLayer) starsLayer.style.transform = drift(y * -0.06);
@@ -1361,7 +1377,11 @@ const isMobile = () => mobileQuery.matches;
 
 const scrollRows = [
   { row: "#skillsGrid", key: "skills", hint: "swipe to explore all skills" },
-  { row: "#projectsGrid", key: "projects", hint: "swipe to browse all projects" },
+  {
+    row: "#projectsGrid",
+    key: "projects",
+    hint: "swipe to browse all projects",
+  },
 ];
 
 function visibleItems(row) {
